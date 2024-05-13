@@ -1,0 +1,8 @@
+.product-card {
+  .infos {
+    text-align: center;
+  }
+  &:hover {
+    color: var(--color-muted);
+  }
+}

@@ -1,0 +1,9 @@
+.modules {
+  section {
+    width: 100%;
+    // margin-bottom: var(--space-xl);
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

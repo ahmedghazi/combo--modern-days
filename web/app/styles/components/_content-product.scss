@@ -1,0 +1,41 @@
+.content-product {
+  padding: 0 var(--space-lg);
+  .hero-slider {
+    .slide {
+      background-color: black;
+      img {
+        aspect-ratio: 1339 / 753;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  .header,
+  .label {
+    font-size: var(--text-lg);
+  }
+  div.header {
+    padding: var(--space-md) 0;
+
+    h1 {
+      text-align: center;
+    }
+    .price {
+      text-align: right;
+    }
+    .atc-wrapper {
+      text-align: center;
+      padding: var(--space-md) 0;
+    }
+    .slider-pager,
+    .price {
+      line-height: 1;
+    }
+  }
+  .body {
+    padding: 0 0 var(--space-lg);
+    .text {
+      padding-top: toRem(12);
+    }
+  }
+}
