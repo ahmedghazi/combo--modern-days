@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Product } from "@/app/types/schema";
 import { usePathname } from "next/navigation";
-import VariantsList from "./VariantsList";
+
 // import { _localizeField, _localizeText } from "@/app/utils/utils";
 import { subscribe, unsubscribe } from "pubsub-js";
 import clsx from "clsx";
@@ -16,7 +16,6 @@ const AddToCart = ({ input }: Props) => {
   const { _id, title, price, weight, imageCover } = input;
   const pathname = usePathname();
   const [status, setStatus] = useState("addToCart");
-  const { variant } = useShop();
 
   // const _getVariants = () => {
   //   if (!variants || variants.length === 0) return "";
