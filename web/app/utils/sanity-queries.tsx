@@ -105,6 +105,11 @@ export const productQ = groq`*[_type == "product" && slug.current == $slug][0]{
 	publisher->{
     title
   },
+  imageCover{
+    image{
+      asset->
+    }
+  },
   images[]{
     image{
       ...,

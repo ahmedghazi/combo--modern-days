@@ -71,7 +71,7 @@ const AddToCart = ({ input }: Props) => {
         data-item-name={title}
         data-item-description={input.information}
         data-item-image={imageCover?.image?.asset.url}
-        data-item-taxes={"TVA"}
+        // data-item-taxes={"TVA"}
         // {..._getVariants()}
       >
         <span className='pointer-events-none '>Acheter</span>

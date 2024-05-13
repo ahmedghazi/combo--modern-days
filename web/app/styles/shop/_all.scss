@@ -1,7 +1,7 @@
 .snipcart-overwrite #snipcart {
-  font-family: var(--font-primary) !important;
-  font-size: var(--text-md) !important;
-  font-weight: 700 !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 400 !important;
   *,
   .snipcart__font--primary,
   .snipcart__font--secondary,
@@ -16,10 +16,10 @@
   .snipcart__box--badge,
   .snipcart__font--subtitle,
   .snipcart__font--xlarge {
-    font-family: var(--font-primary) !important;
+    font-family: var(--font-sans) !important;
     // font-weight: 400 !important;
-    font-size: var(--text-md) !important;
-    font-weight: 700 !important;
+    font-size: var(--text-sm) !important;
+    font-weight: 400 !important;
     // color: var(--color-primary);
     // box-shadow: unset;
   }
@@ -34,8 +34,19 @@
   .snipcart-test-banner {
     position: absolute;
   }
+  .snipcart-layout__cols{
+    gap: var(--space-md);
+  }
+  .snipcart-layout__col--large,
+  .snipcart-layout__col{
+    margin: 0;
+    flex: 1;
+    &.snipcart-layout__col--large{
+      flex: 2;
+    }
+  }
   .snipcart-cart-summary-side .snipcart-cart__secondary-header {
-    padding: 0px var(--space-md);
+    padding: var(--space-md);
     min-height: unset;
     height: auto;
     flex: 0;
@@ -45,18 +56,31 @@
     border-left: var(--border) black;
   }
 
+  .snipcart-base-button {
+    border-radius: 2em;
+  }
+  .snipcart__box--badge{
+    border-width: 1px;
+  }
+
+  .snipcart-form__select{
+    padding: var(--space-sm);
+  }
+  .snipcart__font--bold{
+    line-height: unset;
+  }
   /* -----------------
         Colors
     ----------------- */
   --color-default: hsl(0, 0%, 90%);
   --color-alt: hsl(0, 0%, 50%);
   // --color-icon: hsl(200, 90%, 40%);
-  --color-icon: var(--color-secondary);
+  --color-icon: white;
   --color-success: hsl(144, 50%, 55%);
   --color-error: hsl(6, 55%, 60%);
 
   // --color-link: hsl(220, 70%, 55%);
-  --color-link: var(--color-secondary);
+  --color-link: white;
   --color-link-hover: hsl(220, 70%, 65%);
   --color-link-active: var(--color-link);
   --color-link-focus: var(--color-link);
@@ -86,7 +110,7 @@
   --color-buttonPrimary-error: var(--color-buttonPrimary);
 
   --color-buttonSecondary: var(--color-icon);
-  --color-buttonSecondary-hover: hsl(200, 90%, 50%);
+  --color-buttonSecondary-hover: var(--color-blue);
   --color-buttonSecondary-active: var(--color-buttonSecondary);
   --color-buttonSecondary-focus: var(--color-buttonSecondary);
   --color-buttonSecondary-disabled: hsl(210, 10%, 25%);
@@ -116,10 +140,10 @@
   --borderColor-link-active: currentColor;
   --borderColor-link-focus: currentColor;
 
-  --borderColor-input: hsla(0, 0%, 100%, 10%);
-  --borderColor-input-hover: hsl(200, 90%, 40%);
-  --borderColor-input-focus: var(--borderColor-input-hover);
-  --borderColor-input-checked: var(--borderColor-input-hover);
+  --borderColor-input: white;
+  --borderColor-input-hover: gray
+  --borderColor-input-focus: gray;
+  --borderColor-input-checked: gray;
   --borderColor-input-disabled: hsl(210, 10%, 20%);
   --borderColor-input-error: var(--borderColor-error);
 
@@ -131,14 +155,14 @@
   --borderColor-buttonPrimary-error: transparent;
 
   --borderColor-buttonSecondary: transparent;
-  --borderColor-buttonSecondary-hover: transparent;
-  --borderColor-buttonSecondary-focus: transparent;
+  --borderColor-buttonSecondary-hover: var(--color-blue);
+  --borderColor-buttonSecondary-focus: var(--color-blue);
   --borderColor-buttonSecondary-disabled: transparent;
   --borderColor-buttonSecondary-success: transparent;
-  --borderColor-buttonSecondary-error: transparent;
+  --borderColor-buttonSecondary-error: red;
 
-  --borderColor-badge: transparent;
-  --borderColor-badge-active: transparent;
+  --borderColor-badge: white;
+  --borderColor-badge-active: white;
   --borderColor-badge-disabled: transparent;
 
   /* -----------------
@@ -148,7 +172,7 @@
   --bgColor-alt: hsl(0, 0%, 0%);
   --bgColor-success: hsl(144, 70%, 15%);
   --bgColor-error: hsl(6, 50%, 15%);
-  --bgColor-info: hsl(210, 55%, 15%);
+  --bgColor-info: var(--color-blue);
 
   --bgColor-modal: hsl(210, 10%, 7%);
   --bgColor-modalVeil: hsla(210, 10%, 7%, 0.75);
@@ -167,16 +191,16 @@
   --bgColor-input-error: var(--bgColor-input);
   --bgColor-input-autofill: hsl(210, 60%, 15%);
 
-  --bgColor-buttonPrimary: hsl(220, 70%, 22%);
-  --bgColor-buttonPrimary-hover: hsl(220, 70%, 30%);
-  --bgColor-buttonPrimary-active: var(--bgColor-buttonPrimary);
-  --bgColor-buttonPrimary-focus: var(--bgColor-buttonPrimary);
+  --bgColor-buttonPrimary: white;
+  --bgColor-buttonPrimary-hover: gray;
+  --bgColor-buttonPrimary-active: gray;
+  --bgColor-buttonPrimary-focus: gray;
   --bgColor-buttonPrimary-disabled: hsl(210, 10%, 25%);
   --bgColor-buttonPrimary-success: hsl(144, 66%, 30%);
-  --bgColor-buttonPrimary-error: hsl(6, 60%, 35%);
+  --bgColor-buttonPrimary-error: red;
 
   --bgColor-buttonSecondary: var(--bgColor-info);
-  --bgColor-buttonSecondary-hover: hsl(210, 60%, 18%);
+  --bgColor-buttonSecondary-hover: transparent;
   --bgColor-buttonSecondary-active: var(--bgColor-buttonSecondary);
   --bgColor-buttonSecondary-focus: var(--bgColor-buttonSecondary);
   --bgColor-buttonSecondary-disabled: hsl(210, 10%, 9%);
@@ -192,7 +216,7 @@
   --bgColor-buttonDanger-error: hsl(6, 60%, 35%);
 
   --bgColor-badge: hsl(210, 55%, 10%);
-  --bgColor-badge-active: hsl(210, 60%, 15%);
+  --bgColor-badge-active: hsl(0, 0%, 0%);
   --bgColor-badge-disabled: hsl(210, 10%, 11%);
 
   /* -----------------
@@ -259,9 +283,12 @@
   button.snipcart-button-primary {
     background-color: #1a4db3;
     background-color: var(--bgColor-buttonPrimary, #1a4db3);
-    background-color: transparent;
-    border: var(--border);
-    border-radius: 0;
+    border-color: var(--bgColor-buttonPrimary, #1a4db3);
+    // background-color: transparent;
+    color: black;
+    text-transform: uppercase;
+    border: 1px solid var(--bgColor-buttonPrimary, #1a4db3);
+    // border-radius: 2em;
     padding: var(--space-sm);
   }
 
@@ -270,11 +297,11 @@
     .snipcart-item-list
     .snipcart-item-line
     .snipcart-item-line__container {
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-md);
   }
 
   .snipcart-cart--edit {
-    background: white;
+    // background: white;
     .snipcart-cart__secondary-header {
       background: black;
     }
@@ -282,10 +309,10 @@
     .snipcart-item-line,
     .snipcart-cart__content,
     .snipcart-cart__footer {
-      background: white;
+      // background: white;
       *,
       .snipcart-button-primary {
-        color: black !important;
+        // color: black !important;
       }
       .snipcart-button-icon.is-danger,
       .snipcart-button-icon.is-secondary {
@@ -298,6 +325,13 @@
   }
   .snipcart-button-primary:hover {
     box-shadow: unset;
+  }
+  .snipcart-input {
+    height: auto;
+    border-color: white;
+  }
+  .snipcart-input__input {
+    padding: var(--space-sm);
   }
 }
 

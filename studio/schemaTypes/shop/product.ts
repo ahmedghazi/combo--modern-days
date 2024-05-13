@@ -101,7 +101,7 @@ export default defineType({
       group: 'editorial',
     }),
     defineField({
-      type: 'blockContent',
+      type: 'text',
       name: 'information',
       group: 'editorial',
     }),

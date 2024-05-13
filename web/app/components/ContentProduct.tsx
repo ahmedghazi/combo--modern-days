@@ -31,7 +31,7 @@ const ContentProduct = ({ input }: Props) => {
   }, []);
 
   const slides = ["/hero.png", "/livre2.jpg"];
-
+  console.log(input);
   return (
     <article className='content-product'>
       <div className='hero-slider'>
@@ -55,7 +55,11 @@ const ContentProduct = ({ input }: Props) => {
       <div className='header'>
         <div className='grid md:grid-cols-3'>
           <div className='slider-pager'>
-            Image {slideIndex}/{slides.length}
+            {input.images && (
+              <span>
+                Image {slideIndex}/{input.images.length}
+              </span>
+            )}
           </div>
           <h1 className='text-lg'>
             {input.title} ({input.publisher?.title})
@@ -99,12 +103,13 @@ const ContentProduct = ({ input }: Props) => {
               <div className='flex justify-between mb-lg'>
                 <div className='w-4/6 '>
                   <div className='text text-md'>
-                    {input.information && (
+                    {/* {input.information && (
                       <PortableText
                         value={input.information}
                         components={portableTextComponents}
                       />
-                    )}
+                    )} */}
+                    {input.information}
                   </div>
                 </div>
                 <div className='label'>Informations</div>

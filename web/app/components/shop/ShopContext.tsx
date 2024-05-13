@@ -71,8 +71,8 @@ export const ShopWrapper = ({ children }: ShopContextProps) => {
       //   continue_shopping: "Go back to store",
       // },
       header: {
-        // title_cart_summary: "Panier",
-        // loading: "Chargement…",
+        title_cart_summary: "Panier",
+        loading: "Chargement…",
       },
       cart: {
         // view_detailed_cart: "Voir le détail du panier",

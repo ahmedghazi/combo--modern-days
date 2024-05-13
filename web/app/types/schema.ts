@@ -337,11 +337,11 @@ export interface Product extends SanityDocument {
   description?: BlockContent;
 
   /**
-   * information — `blockContent`
+   * information — `text`
    *
    *
    */
-  information?: BlockContent;
+  information?: string;
 
   /**
    * contributors — `blockContent`
