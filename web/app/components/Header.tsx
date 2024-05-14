@@ -23,6 +23,7 @@ const Header = ({ settings }: Props) => {
   }, [pathname]);
 
   useEffect(() => {
+    _onScroll();
     window.addEventListener("scroll", _onScroll);
 
     return () => {
@@ -38,6 +39,10 @@ const Header = ({ settings }: Props) => {
       (window.pageYOffset || scroller.scrollTop) - (scroller.clientTop || 0);
     const lastscrollTop = scroller.dataset.lastscrollTop || 0;
 
+    if (scrollTop === 0) {
+      setDirection("");
+      return;
+    }
     if (lastscrollTop) {
       const direction =
         parseFloat(lastscrollTop) > scrollTop ? "scroll--up" : "scroll--down";

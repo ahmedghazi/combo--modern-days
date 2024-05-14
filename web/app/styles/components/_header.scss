@@ -5,8 +5,14 @@ header {
   padding: var(--space-md) var(--space-lg);
   z-index: 50;
   transition: transform 0.2s var(--cubic), opacity 0.2s var(--cubic);
-  color: white;
-  mix-blend-mode: difference;
+  color: black;
+  // mix-blend-mode: difference;
+  input {
+    color: black;
+    &::placeholder {
+      color: black;
+    }
+  }
   &:has(.search.is-open) {
     mix-blend-mode: initial;
     color: black;
@@ -14,6 +20,17 @@ header {
   &.scroll--down {
     transform: translateY(-100%);
     opacity: 0;
+  }
+  &.scroll--up {
+    mix-blend-mode: difference;
+    color: white;
+    input {
+      color: white;
+      &::placeholder {
+        color: white;
+      }
+    }
+    // background-color: white;
   }
 
   #nav-primary {
