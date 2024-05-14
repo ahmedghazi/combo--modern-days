@@ -7,6 +7,10 @@ header {
   transition: transform 0.2s var(--cubic), opacity 0.2s var(--cubic);
   color: white;
   mix-blend-mode: difference;
+  &:has(.search.is-open) {
+    mix-blend-mode: initial;
+    color: black;
+  }
   &.is-down {
     transform: translateY(-100%);
     opacity: 0;

@@ -30,8 +30,6 @@ const ContentProduct = ({ input }: Props) => {
     };
   }, []);
 
-  const slides = ["/hero.png", "/livre2.jpg"];
-  console.log(input);
   return (
     <article className='content-product'>
       <div className='hero-slider'>
@@ -67,18 +65,6 @@ const ContentProduct = ({ input }: Props) => {
           <div className='price text-blue'>{input.price}€</div>
         </div>
         <div className='atc-wrapper'>
-          {/* <button
-            className='snipcart-add-item btn btn--primary btn--lg'
-            data-item-id='39623800-e6d2-4384-a577-921afab868ec'
-            data-item-price='35'
-            data-item-weight='100'
-            data-item-url='/product/5'
-            data-item-name='5'
-            data-item-description='Softcover - 2023 - 64 pages -  24 x 17 cm'
-            data-item-image='https://cdn.sanity.io/images/eqw7qn8w/production/11674a4cd03ba5dbf4325eaa7414ff9f24ca8e0a-1200x1409.jpg'
-            data-item-taxes='TVA Livres'>
-            <span className='pointer-events-none '>Acheter</span>
-          </button> */}
           <AddToCart input={input} />
         </div>
       </div>
@@ -102,15 +88,7 @@ const ContentProduct = ({ input }: Props) => {
             <div className='infos'>
               <div className='flex justify-between mb-lg'>
                 <div className='w-4/6 '>
-                  <div className='text text-md'>
-                    {/* {input.information && (
-                      <PortableText
-                        value={input.information}
-                        components={portableTextComponents}
-                      />
-                    )} */}
-                    {input.information}
-                  </div>
+                  <div className='text text-md'>{input.information}</div>
                 </div>
                 <div className='label'>Informations</div>
               </div>

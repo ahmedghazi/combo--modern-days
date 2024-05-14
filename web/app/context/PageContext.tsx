@@ -53,7 +53,7 @@ export const PageContextProvider = (props: PageContextProps) => {
       );
     }
 
-    document.body.classList.remove("loading");
+    document.body.classList.remove("is-loading");
   };
 
   return (

@@ -50,7 +50,7 @@ export const ShopWrapper = ({ children }: ShopContextProps) => {
     // console.log(window);
     if (!Snipcart) {
       document.addEventListener("snipcart.ready", (e) => {
-        console.log(e);
+        console.log(e.type);
         setReady(true);
       });
     } else {

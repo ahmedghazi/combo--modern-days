@@ -69,6 +69,9 @@
   .snipcart__font--bold{
     line-height: unset;
   }
+  .snipcart-item-line__container{
+    margin: 0;
+  }
   /* -----------------
         Colors
     ----------------- */
@@ -132,8 +135,8 @@
   /* -----------------
         Border colors
     ----------------- */
-  --borderColor-default: hsla(0, 0%, 100%, 10%);
-  --borderColor-error: hsl(6, 55%, 30%);
+  --borderColor-default: hsl(0, 0%, 98%);
+  --borderColor-error: hsl(6, 100%, 50%);
 
   --borderColor-link: currentColor;
   --borderColor-link-hover: currentColor;

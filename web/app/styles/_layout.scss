@@ -8,7 +8,7 @@ body {
   // overflow-y: auto;
   background-color: white;
 
-  &.loading {
+  &.is-loading {
     opacity: 0;
   }
   // @include debugFiletX(50%);

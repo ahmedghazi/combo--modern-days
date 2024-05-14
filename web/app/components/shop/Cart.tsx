@@ -57,12 +57,8 @@ const Cart = () => {
 
   return (
     <div className='cart' ref={cartRef}>
-      <div className='flex'>
-        {count > 0 && (
-          <div className='snipcart-items-count px-02e cartouche cartouche--purple'>
-            {count}
-          </div>
-        )}
+      <div className='flex gap-sm'>
+        {count > 0 && <div className='snipcart-items-count '>({count})</div>}
         {/* <span className='snipcart-items-count'>3</span> */}
         <button
           className='snipcart-checkout z-10- relative- block- cartouche'
