@@ -11,7 +11,7 @@ header {
     mix-blend-mode: initial;
     color: black;
   }
-  &.is-down {
+  &.scroll--down {
     transform: translateY(-100%);
     opacity: 0;
   }

@@ -120,7 +120,7 @@ const Search = (props: Props) => {
 
   return (
     <div className={clsx("search", open ? "is-open" : "")}>
-      <form className='search cartouche w-full z-50' onSubmit={_handleSubmit}>
+      <form className='search' onSubmit={_handleSubmit}>
         <div className='form '>
           <input
             type='search'

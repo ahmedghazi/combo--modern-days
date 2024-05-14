@@ -11,6 +11,7 @@ import { usePathname } from "next/navigation";
 import Logo from "./components/Logo";
 import { ShopWrapper } from "./components/shop/ShopContext";
 import Script from "next/script";
+import Cursor from "./components/ui/Cursor";
 
 export const metadata = {
   metadataBase: new URL(website.url),
@@ -53,6 +54,7 @@ export default async function RootLayout({
               <Footer settings={settings} />
               <Logo rotateOnScroll={true} />
               {/* <Splash /> */}
+              <Cursor color='var(--color-blue)' size={20} />
             </PageContextProvider>
           </ShopWrapper>
         </div>

@@ -6,3 +6,19 @@
     }
   }
 }
+
+.nav--cart {
+  .snipcart-items--count {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: transform 0.2s;
+    &.slideLeft {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+  button {
+    position: relative;
+    z-index: 1;
+  }
+}

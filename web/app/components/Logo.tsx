@@ -65,9 +65,29 @@ const Logo = ({ rotateAuto, rotateMouse, rotateOnScroll }: Props) => {
     scroller.dataset.lastscrollTop = `${scrollTop}`;
   };
 
+  const _onMouseEnter = () => {
+    _animateScroll();
+    requestAnimationFrame(_animateScroll);
+  };
+
+  const _animateScroll = () => {
+    const scroller = getScrollingElement();
+    let scrollTop =
+      (window.pageYOffset || scroller.scrollTop) - (scroller.clientTop || 0);
+    scrollTop++;
+    console.log("_animateScroll", scrollTop);
+    console.log("scroller", scroller);
+    scroller.scroll(0, scrollTop);
+
+    // if (scroll_counter >= body.offsetHeight) {
+    //   window.cancelAnimationFrame(scroller);
+    // }
+  };
+
   return (
     <div
       ref={ref}
+      // onMouseEnter={_onMouseEnter}
       className={clsx("logo logo-roulette", rotateAuto && "is-rotate-auto")}>
       <div
         className='inner'

@@ -2,6 +2,7 @@
 import { publish } from "pubsub-js";
 import React, { useEffect, useRef, useState } from "react";
 import useShop from "./ShopContext";
+import clsx from "clsx";
 
 const Cart = () => {
   const [count, setCount] = useState<number>(0);
@@ -44,24 +45,19 @@ const Cart = () => {
     }
   }, [cartObject]);
 
-  // const _onClose = () => {
-  //   // const { Snipcart } = window;
-  //   // if (!Snipcart) return;
-
-  //   // Snipcart.api.theme.cart.close();
-  //   const btnClose: HTMLElement = document.querySelector(
-  //     ".snipcart-modal__close"
-  //   ) as HTMLElement;
-  //   if (btnClose) btnClose.click();
-  // };
-
   return (
-    <div className='cart' ref={cartRef}>
+    <div className='nav--cart' ref={cartRef}>
       <div className='flex gap-sm'>
-        {count > 0 && <div className='snipcart-items-count '>({count})</div>}
-        {/* <span className='snipcart-items-count'>3</span> */}
+        <div
+          className={clsx(
+            "snipcart-items--count",
+            count === 0 ? "slideLeft" : ""
+          )}>
+          [{count}]
+        </div>
+
         <button
-          className='snipcart-checkout z-10- relative- block- cartouche'
+          className='snipcart-checkout'
           aria-label='open cart'
           title='open cart'>
           PANIER

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Settings } from "../types/schema";
-import { _linkResolver } from "../utils/utils";
+import { _linkResolver, getScrollingElement } from "../utils/utils";
 import Cart from "./shop/Cart";
 import Mailchimp from "./ui/Mailchimp";
 import Search from "./ui/Search";
@@ -15,14 +15,38 @@ type Props = {
 
 const Header = ({ settings }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
+  const [direction, setDirection] = useState<string>("");
   const pathname = usePathname();
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    window.addEventListener("scroll", _onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", _onScroll);
+    };
+  }, []);
+
+  const _onScroll = () => {
+    const scroller = getScrollingElement();
+    if (!scroller) return;
+
+    const scrollTop =
+      (window.pageYOffset || scroller.scrollTop) - (scroller.clientTop || 0);
+    const lastscrollTop = scroller.dataset.lastscrollTop || 0;
+
+    if (lastscrollTop) {
+      const direction =
+        parseFloat(lastscrollTop) > scrollTop ? "scroll--up" : "scroll--down";
+      setDirection(direction);
+    }
+  };
+
   return (
-    <header>
+    <header className={direction}>
       <div className='header-mobile'>
         <div className='flex justify-between '>
           <button onClick={() => setOpen(!open)}>

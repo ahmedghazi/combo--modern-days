@@ -122,3 +122,9 @@ ul.list-with-comma {
 .flex-2 {
   flex: 2;
 }
+
+.slideLeft {
+  transition: transform 0.2s;
+  transform: translateX(0);
+  opacity: 1;
+}
