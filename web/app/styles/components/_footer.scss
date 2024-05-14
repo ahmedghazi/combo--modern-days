@@ -2,6 +2,18 @@ footer {
   padding: var(--space-xl) var(--space-lg) var(--space-lg);
   text-align: center;
 
+  @media all and (min-width: $md) {
+    .image--left,
+    .image--right {
+      // transition: transform 0.2s;
+    }
+    .image--left img {
+      transform: translateX(calc(100% - var(--perc) * 100%));
+    }
+    .image--right img {
+      transform: translateX(calc(-100% - var(--perc) * -100%));
+    }
+  }
   @media all and (max-width: $md) {
     padding: var(--space-xl) var(--space-md) var(--space-md);
     .flex {

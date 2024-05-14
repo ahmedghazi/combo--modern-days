@@ -35,7 +35,7 @@ const Footer = ({ settings }: Props) => {
     <footer>
       <div className='flex justify-between items-end'>
         <div
-          className='image-left'
+          className='image--left'
           style={
             {
               "--perc": perc,
@@ -57,7 +57,13 @@ const Footer = ({ settings }: Props) => {
             />
           )}
         </div>
-        <div className='image-right'>
+        <div
+          className='image--right'
+          style={
+            {
+              "--perc": perc,
+            } as React.CSSProperties
+          }>
           <Image
             src={`/logo-editions-grid.svg`}
             width={140}
