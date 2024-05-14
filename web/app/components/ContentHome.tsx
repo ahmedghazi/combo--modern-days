@@ -1,16 +1,19 @@
 import React from "react";
-import { Home } from "../types/schema";
+import { Home, Tag } from "../types/schema";
 import Image from "next/image";
 import ProductCard from "./ProductCard";
 import Slider from "./ui/slick-slider";
 import Figure from "./ui/Figure";
 import { urlFor } from "../utils/sanity-utils";
+import Link from "next/link";
+import { _linkResolver } from "../utils/utils";
 
 type Props = {
   input: Home;
+  tags: Tag[];
 };
 
-const ContentHome = ({ input }: Props) => {
+const ContentHome = ({ input, tags }: Props) => {
   return (
     <div className='content-home'>
       <section className='hero-slider'>
@@ -36,6 +39,18 @@ const ContentHome = ({ input }: Props) => {
         </Slider>
       </section>
       <section className='products p-md md:p-lg'>
+        {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
+        {tags && tags.length > 0 && (
+          <nav className='nav-tags '>
+            <ul className=''>
+              {tags.map((item, i) => (
+                <li key={item._id}>
+                  <Link href={_linkResolver(item)}>{item.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
         <div className='grid md:grid-cols-4 gap-md'>
           {input.products &&
             input.products.map((item, i) => (

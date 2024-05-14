@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import website from "./config/website";
 import ContentHome from "./components/ContentHome";
 import { getClient } from "./utils/sanity-client";
-import { getHome, homeQ } from "./utils/sanity-queries";
+import { getHome, getTags, homeQ } from "./utils/sanity-queries";
 import { Home } from "./types/schema";
 
 export const revalidate = 3600; // revalidate every hour
@@ -43,10 +43,12 @@ const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
     data = (await getHome()) as Home;
   }
 
+  const tags = await getTags();
+
   if (!data) return <div>please edit page</div>;
   return (
     <div className='template template--home' data-template='home'>
-      <ContentHome input={data} />
+      <ContentHome input={data} tags={tags} />
     </div>
   );
 };

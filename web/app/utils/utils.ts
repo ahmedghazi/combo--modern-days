@@ -12,6 +12,8 @@ export const _linkResolver = (
       return `/product/${node.slug?.current}`;
     case "publisher":
       return `/publisher/${node.slug?.current}`;
+    case "tag":
+      return `/tag/${node.slug?.current}`;
 
     default:
       return `/${node.slug?.current}`;

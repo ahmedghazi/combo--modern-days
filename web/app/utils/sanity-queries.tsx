@@ -1,6 +1,13 @@
 import { groq } from "next-sanity";
 import { client } from "./sanity-client";
-import { Home, Infos, Product, Publisher, Settings } from "../types/schema";
+import {
+  Home,
+  Infos,
+  Product,
+  Publisher,
+  Settings,
+  Tag,
+} from "../types/schema";
 import {
   moduleImage,
   moduleText,
@@ -8,7 +15,7 @@ import {
   productCard,
   seo,
 } from "./fragments";
-import { PublisherExtend } from "../types/extend";
+import { PublisherExtend, TagExtend } from "../types/extend";
 // import { cache } from "react";
 
 // const clientFetch = cache(client.fetch.bind(client));
@@ -152,4 +159,30 @@ export const publisherQ = groq`*[_type == "publisher" && slug.current == $slug][
 
 export async function getPublisher(slug: string): Promise<PublisherExtend> {
   return client.fetch(publisherQ, { slug: slug });
+}
+
+/**
+ * TAGS
+ */
+export const tagsQ = groq`*[_type == "tag" ]{
+  ...
+}`;
+export async function getTags(): Promise<Tag[]> {
+  return client.fetch(tagsQ, {});
+}
+
+/**
+ * TAG
+ */
+export const tagQ = groq`*[_type == "tag" && slug.current == $slug][0]{
+  ...,
+  "products": *[
+    _type == "product"
+    && $slug in tags[]->slug.current
+  ] {
+    ${productCard}
+  }
+}`;
+export async function getTag(slug: string): Promise<TagExtend> {
+  return client.fetch(tagQ, { slug: slug });
 }
