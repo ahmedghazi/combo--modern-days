@@ -228,11 +228,11 @@ export interface Tag extends SanityDocument {
   title?: string;
 
   /**
-   * Type — `string`
+   * Slug — `slug`
    *
-   *
+   * Click on generate, Semantic URL based on title (no space no char other than a-z-0-9
    */
-  tagType?: "theme" | "geography" | "job";
+  slug?: { _type: "slug"; current: string };
 }
 
 /**
@@ -284,6 +284,13 @@ export interface Product extends SanityDocument {
    *
    */
   publisher?: SanityReference<Publisher>;
+
+  /**
+   * tags — `array`
+   *
+   *
+   */
+  tags?: Array<SanityKeyedReference<Tag>>;
 
   /**
    * SKU — `string`

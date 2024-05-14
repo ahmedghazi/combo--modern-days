@@ -71,6 +71,12 @@ export default defineType({
       to: [{type: 'publisher'}],
       group: 'editorial',
     }),
+    defineField({
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'tag'}}],
+      name: 'tags',
+      group: 'editorial',
+    }),
 
     sku,
     defineField({

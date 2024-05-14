@@ -27,7 +27,7 @@ const Logo = ({ rotateAuto, rotateMouse, rotateOnScroll }: Props) => {
       });
     }
 
-    let parent: HTMLDivElement;
+    // let parent: HTMLDivElement;
     if (rotateOnScroll) {
       window.addEventListener("scroll", _handleScroll);
     }

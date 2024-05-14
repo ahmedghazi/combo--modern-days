@@ -6,4 +6,4 @@ https://jouuue-editions.sanity.studio/
 
 ## front
 
-https://combo-jouuue.vercel.app/
+https://combo-jouuue-nu.vercel.app

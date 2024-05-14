@@ -1,18 +1,46 @@
+"use client";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import portableTextComponents from "../utils/portableTextComponents";
 import { Settings } from "../types/schema";
+import { getScrollingElement } from "../utils/utils";
 
 type Props = {
   settings: Settings;
 };
 
 const Footer = ({ settings }: Props) => {
+  const [perc, setPerc] = useState<number>(0);
+  useEffect(() => {
+    window.addEventListener("scroll", _handleScroll);
+    return () => {
+      window.removeEventListener("scroll", _handleScroll);
+    };
+  }, []);
+
+  const _handleScroll = (evt: Event) => {
+    const scroller = getScrollingElement();
+    if (!scroller) return;
+
+    const scrollTop =
+      (window.pageYOffset || scroller.scrollTop) - (scroller.clientTop || 0);
+    const scrollHeight = scroller.scrollHeight - window.innerHeight;
+    const _perc = scrollTop / scrollHeight;
+    console.log(_perc);
+    setPerc(_perc);
+  };
+
   return (
     <footer>
       <div className='flex justify-between items-end'>
-        <div>
+        <div
+          className='image-left'
+          style={
+            {
+              "--perc": perc,
+            } as React.CSSProperties
+          }>
           <Image
             src={`/logo-jouuue-grid.svg`}
             width={154}
@@ -29,7 +57,7 @@ const Footer = ({ settings }: Props) => {
             />
           )}
         </div>
-        <div>
+        <div className='image-right'>
           <Image
             src={`/logo-editions-grid.svg`}
             width={140}
