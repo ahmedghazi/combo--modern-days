@@ -18,12 +18,12 @@ const ModuleTexteImageUI = ({ input }: Props): JSX.Element => {
         <div
           className={clsx(`col-md-${width} col-md-offset-${offset} col-xs-12`)}>
           <div className='row'>
-            <div className='col-md-6'>
-              <div className='media max-w-full relative aspect-video'>
+            <div className='col-md-6 col-xs-12'>
+              <div className='media max-w-full mb-md'>
                 {image && <Figure asset={image.asset} />}
               </div>
             </div>
-            <div className='col-md-6'>
+            <div className='col-md-6 col-xs-12'>
               {text && (
                 <PortableText
                   value={text}

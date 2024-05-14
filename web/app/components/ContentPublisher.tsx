@@ -10,7 +10,7 @@ type Props = {
 
 const ContentPublisher = ({ input }: Props) => {
   return (
-    <div className='content-publisher px-lg'>
+    <div className='content-publisher px-md md:px-lg'>
       <section className='products mb-lg'>
         <div className='grid md:grid-cols-4 gap-md'>
           {input.products &&

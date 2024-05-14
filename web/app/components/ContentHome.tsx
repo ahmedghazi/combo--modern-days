@@ -35,7 +35,7 @@ const ContentHome = ({ input }: Props) => {
           ))}
         </Slider>
       </section>
-      <section className='products p-lg'>
+      <section className='products p-md md:p-lg'>
         <div className='grid md:grid-cols-4 gap-md'>
           {input.products &&
             input.products.map((item, i) => (

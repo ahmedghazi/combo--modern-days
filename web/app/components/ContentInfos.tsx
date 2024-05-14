@@ -11,7 +11,7 @@ const ContentInfos = ({ input }: Props) => {
   const [currentTab, setCurrentTab] = useState<number>(0);
   const tabBody = input.modules ? input.modules[currentTab] : null;
   return (
-    <div className='content-infos px-lg'>
+    <div className='content-infos px-md md:px-lg'>
       <nav className='nav-infos'>
         <ul className=''>
           {input.modules &&

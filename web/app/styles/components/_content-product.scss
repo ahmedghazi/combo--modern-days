@@ -14,7 +14,7 @@
   .label {
     font-size: var(--text-lg);
   }
-  div.header {
+  .header {
     padding: var(--space-md) 0;
 
     h1 {
@@ -36,6 +36,15 @@
     padding: 0 0 var(--space-lg);
     .text {
       padding-top: toRem(12);
+    }
+  }
+
+  @media all and (max-width: $md) {
+    padding: 0 var(--space-md);
+    .header {
+      .price {
+        text-align: center;
+      }
     }
   }
 }

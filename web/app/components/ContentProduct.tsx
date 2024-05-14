@@ -51,15 +51,15 @@ const ContentProduct = ({ input }: Props) => {
         </Slider>
       </div>
       <div className='header'>
-        <div className='grid md:grid-cols-3'>
-          <div className='slider-pager'>
+        <div className='md:grid grid-cols-2 md:grid-cols-3 text-center'>
+          <div className='slider-pager hidden-sm'>
             {input.images && (
               <span>
                 Image {slideIndex}/{input.images.length}
               </span>
             )}
           </div>
-          <h1 className='text-lg'>
+          <h1 className='text-lg col-span-2 md:col-span-1'>
             {input.title} ({input.publisher?.title})
           </h1>
           <div className='price text-blue'>{input.price}€</div>
@@ -69,11 +69,11 @@ const ContentProduct = ({ input }: Props) => {
         </div>
       </div>
       <div className='body'>
-        <div className='grid md:grid-cols-2 gap-md'>
-          <div className=' grid grid-cols-6'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-md'>
+          <div className='md:grid grid-cols-6'>
             <div className='col-span-2 label'>Description</div>
             <div className='col-span-4'>
-              <div className='text'>
+              <div className='text '>
                 {input.description && (
                   <PortableText
                     value={input.description}
@@ -86,13 +86,13 @@ const ContentProduct = ({ input }: Props) => {
 
           <div className='col-infos'>
             <div className='infos'>
-              <div className='flex justify-between mb-lg'>
+              <div className='flex flex-col-reverse md:flex-row justify-between mb-lg'>
                 <div className='w-4/6 '>
                   <div className='text text-md'>{input.information}</div>
                 </div>
                 <div className='label'>Informations</div>
               </div>
-              <div className='flex justify-between'>
+              <div className='flex flex-col-reverse md:flex-row justify-between'>
                 <div className='w-4/6 '>
                   <div className='text'>
                     {input.contributors && (

@@ -32,7 +32,39 @@ header {
       padding: 0 0.5em;
     }
   }
+
+  .header-mobile {
+    display: none;
+  }
   @media all and (max-width: $md) {
-    padding: var(--space-sm);
+    padding: 0 var(--space-md);
+    mix-blend-mode: initial;
+    color: black;
+    background-color: white;
+    .header-mobile {
+      display: block;
+      border-bottom: var(--border);
+      padding: var(--space-md) 0;
+    }
+    .header-desktop {
+      display: none;
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: var(--header-height);
+      width: 100%;
+      height: calc(var(--vh) * 100 - var(--header-height));
+      overflow-y: auto;
+      background-color: white;
+      padding: 0 var(--space-md);
+      &.is-open {
+        display: block;
+      }
+      #nav-publishers {
+        font-size: var(--text-md);
+      }
+    }
   }
 }
