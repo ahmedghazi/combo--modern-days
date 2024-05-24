@@ -18,11 +18,25 @@ header {
   }
 
   @media all and (min-width: $md) {
+    #nav-primary li {
+      // min-width: toRem(204);
+      .nav--cart .flex {
+        justify-content: end;
+      }
+    }
     input {
       color: black;
+      width: auto !important;
       &::placeholder {
         color: black;
       }
+      text-align: center;
+      &#s {
+      }
+    }
+    button[type="submit"] {
+      position: absolute;
+      right: 0;
     }
     &:has(.search.is-open) {
       mix-blend-mode: initial;

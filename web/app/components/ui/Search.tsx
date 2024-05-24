@@ -124,6 +124,7 @@ const Search = (props: Props) => {
         <div className='form '>
           <input
             type='search'
+            size={10}
             placeholder={"RECHERCHER"}
             name='term'
             // onChange={changeHandler}

@@ -101,6 +101,7 @@ const Mailchimp = (props: Props) => {
           <div className='flex-2 input-wrapper'>
             <input
               {...field}
+              size={10}
               role='textbox'
               onChange={({ target }) =>
                 // setState({ [input.name]: target.value })
