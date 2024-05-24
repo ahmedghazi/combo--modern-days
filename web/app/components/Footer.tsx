@@ -4,7 +4,8 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import portableTextComponents from "../utils/portableTextComponents";
 import { Settings } from "../types/schema";
-import { getScrollingElement } from "../utils/utils";
+import { _linkResolver, getScrollingElement } from "../utils/utils";
+import Link from "next/link";
 
 type Props = {
   settings: Settings;
@@ -33,6 +34,15 @@ const Footer = ({ settings }: Props) => {
 
   return (
     <footer>
+      <nav className='nav-publishers'>
+        <ul className='md:flex'>
+          {settings.navPublishers?.map((item, i) => (
+            <li key={i}>
+              <Link href={_linkResolver(item.link)}>{item.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
       <div className='flex justify-between items-end'>
         <div
           className='image--left'

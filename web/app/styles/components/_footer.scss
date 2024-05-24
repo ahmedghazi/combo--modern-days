@@ -8,10 +8,10 @@ footer {
       // transition: transform 0.2s;
     }
     .image--left img {
-      transform: translateX(calc(100% - var(--perc) * 100%));
+      transform: translateX(calc(200% - var(--perc) * 200%));
     }
     .image--right img {
-      transform: translateX(calc(-100% - var(--perc) * -100%));
+      transform: translateX(calc(-200% - var(--perc) * -200%));
     }
   }
   @media all and (max-width: $md) {

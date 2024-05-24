@@ -72,7 +72,7 @@ const Header = ({ settings }: Props) => {
               </li>
               <li>
                 <Mailchimp
-                  action='https://club.us11.list-manage.com/subscribe/post?u=7ec729474c5f3671662bdeda0&id=5530cd0b9b&f_id=00fdafe0f0&tags=123'
+                  action='xxx'
                   field={{
                     name: "EMAIL",
                     placeholder: "NEWSLETTER",
@@ -83,7 +83,7 @@ const Header = ({ settings }: Props) => {
               </li>
             </ul>
           </nav>
-          <nav id='nav-publishers'>
+          <nav className='nav-publishers'>
             <ul className='md:flex'>
               {settings.navPublishers?.map((item, i) => (
                 <li key={i}>
@@ -107,7 +107,7 @@ const Header = ({ settings }: Props) => {
             </li>
             <li>
               <Mailchimp
-                action='https://club.us11.list-manage.com/subscribe/post?u=7ec729474c5f3671662bdeda0&id=5530cd0b9b&f_id=00fdafe0f0&tags=123'
+                action='xxx'
                 field={{
                   name: "EMAIL",
                   placeholder: "NEWSLETTER",
@@ -121,7 +121,7 @@ const Header = ({ settings }: Props) => {
             </li>
           </ul>
         </nav>
-        <nav id='nav-publishers'>
+        <nav className='nav-publishers'>
           <ul className='flex'>
             {settings.navPublishers?.map((item, i) => (
               <li key={i}>

@@ -41,9 +41,15 @@
 
   @media all and (max-width: $md) {
     padding: 0 var(--space-md);
+    .text-lg,
+    .header,
+    .label {
+      font-size: var(--text-md);
+    }
     .header {
       .price {
         text-align: center;
+        margin-top: 0.5em;
       }
     }
   }

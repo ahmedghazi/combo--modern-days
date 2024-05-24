@@ -7,52 +7,44 @@ header {
   transition: transform 0.2s var(--cubic), opacity 0.2s var(--cubic);
   color: black;
   // mix-blend-mode: difference;
-  input {
-    color: black;
-    &::placeholder {
-      color: black;
-    }
-  }
-  &:has(.search.is-open) {
-    mix-blend-mode: initial;
-    color: black;
-  }
-  &.scroll--down {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  &.scroll--up {
-    mix-blend-mode: difference;
-    color: white;
-    input {
-      color: white;
-      &::placeholder {
-        color: white;
-      }
-    }
-    // background-color: white;
-  }
-
   #nav-primary {
     margin-bottom: var(--space-md);
     font-family: var(--font-sans);
     font-size: var(--text-sm);
   }
-  #nav-publishers {
-    font-size: var(--text-lg);
-    ul {
-      justify-content: center;
-    }
-    li:not(:last-child):after {
-      content: "/";
-      display: inline-block;
-      padding: 0 0.5em;
-    }
-  }
 
   .header-mobile {
     display: none;
   }
+
+  @media all and (min-width: $md) {
+    input {
+      color: black;
+      &::placeholder {
+        color: black;
+      }
+    }
+    &:has(.search.is-open) {
+      mix-blend-mode: initial;
+      color: black;
+    }
+    &.scroll--down {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    &.scroll--up {
+      mix-blend-mode: difference;
+      color: white;
+      input {
+        color: white;
+        &::placeholder {
+          color: white;
+        }
+      }
+      // background-color: white;
+    }
+  }
+
   @media all and (max-width: $md) {
     padding: 0 var(--space-md);
     mix-blend-mode: initial;
@@ -61,7 +53,7 @@ header {
     .header-mobile {
       display: block;
       border-bottom: var(--border);
-      padding: var(--space-md) 0;
+      padding: var(--space-sm) 0;
     }
     .header-desktop {
       display: none;
@@ -75,7 +67,7 @@ header {
       height: calc(var(--vh) * 100 - var(--header-height));
       overflow-y: auto;
       background-color: white;
-      padding: 0 var(--space-md);
+      padding: var(--space-md);
       &.is-open {
         display: block;
       }
@@ -83,5 +75,24 @@ header {
         font-size: var(--text-md);
       }
     }
+    input {
+      color: black;
+      text-align: left !important;
+      &::placeholder {
+        color: black;
+      }
+    }
+  }
+}
+
+.nav-publishers {
+  font-size: var(--text-lg);
+  ul {
+    justify-content: center;
+  }
+  li:not(:last-child):after {
+    content: "/";
+    display: inline-block;
+    padding: 0 0.5em;
   }
 }
