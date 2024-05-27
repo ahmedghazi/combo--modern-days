@@ -113,6 +113,11 @@ a[aria-current="page"] {
     color: var(--color-hover);
   }
 }
+a[aria-current="page"],
+a.is-current,
+button.is-current {
+  color: var(--color-blue);
+}
 
 /* Text elements */
 p,

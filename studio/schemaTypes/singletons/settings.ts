@@ -76,33 +76,14 @@ export default defineType({
       ],
       group: 'header',
     }),
-    // defineField({
-    //   name: "navSecondary",
-    //   title: "Naviguation Secondary",
-    //   type: "array",
-    //   of: [
-    //     {
-    //       type: "linkInternal",
-    //     },
-    //     {
-    //       type: "linkExternal",
-    //     },
-    //   ],
-    //   group: "footer",
-    // }),
 
-    // defineField({
-    //   name: 'footerItems',
-    //   title: 'Footer items',
-    //   description: 'contact, links, credits',
-    //   type: 'array',
-    //   of: [
-    //     {
-    //       type: 'blockContent',
-    //     },
-    //   ],
-    //   group: 'footer',
-    // }),
+    defineField({
+      name: 'newsletterUrl',
+      // title: 'Message 404',
+      type: 'string',
+      group: 'header',
+    }),
+
     defineField({
       name: 'footerText',
       type: 'blockContent',

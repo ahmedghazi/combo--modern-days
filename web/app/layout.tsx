@@ -47,7 +47,7 @@ export default async function RootLayout({
               <Header settings={settings} />
               <main>{children}</main>
               <Footer settings={settings} />
-              <Logo rotateOnScroll={true} />
+              <Logo rotateOnScroll={true} url={settings.logo?.asset.url} />
 
               <Cursor color='var(--color-blue)' size={20} />
             </PageContextProvider>

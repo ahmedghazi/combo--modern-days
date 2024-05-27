@@ -17,7 +17,11 @@ const ContentInfos = ({ input }: Props) => {
           {input.modules &&
             input.modules.map((item, i) => (
               <li key={item._key}>
-                <button onClick={() => setCurrentTab(i)}>{item.title}</button>
+                <button
+                  onClick={() => setCurrentTab(i)}
+                  className={i === currentTab ? "is-current" : ""}>
+                  {item.title}
+                </button>
               </li>
             ))}
         </ul>

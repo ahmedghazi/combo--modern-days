@@ -50,6 +50,10 @@ const Header = ({ settings }: Props) => {
     }
   };
 
+  const _isCurrent = (url: string) => {
+    return url === pathname ? "is-current" : "";
+  };
+
   return (
     <header className={direction}>
       <div className='header-mobile'>
@@ -64,30 +68,40 @@ const Header = ({ settings }: Props) => {
             <ul className='md:flex justify-between'>
               {settings.navPrimary?.map((item, i) => (
                 <li key={i}>
-                  <Link href={_linkResolver(item.link)}>{item.label}</Link>
+                  <Link
+                    href={_linkResolver(item.link)}
+                    className={_isCurrent(_linkResolver(item.link))}>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
               <li>
                 <Search />
               </li>
-              <li>
-                <Mailchimp
-                  action='xxx'
-                  field={{
-                    name: "EMAIL",
-                    placeholder: "NEWSLETTER",
-                    type: "email",
-                    required: true,
-                  }}
-                />
-              </li>
+              {settings.newsletterUrl && (
+                <li>
+                  <Mailchimp
+                    action={settings.newsletterUrl}
+                    field={{
+                      name: "EMAIL",
+                      placeholder: "NEWSLETTER",
+                      type: "email",
+                      required: true,
+                    }}
+                  />
+                </li>
+              )}
             </ul>
           </nav>
           <nav className='nav-publishers'>
             <ul className='md:flex'>
               {settings.navPublishers?.map((item, i) => (
                 <li key={i}>
-                  <Link href={_linkResolver(item.link)}>{item.label}</Link>
+                  <Link
+                    href={_linkResolver(item.link)}
+                    className={_isCurrent(_linkResolver(item.link))}>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -99,23 +113,29 @@ const Header = ({ settings }: Props) => {
           <ul className='flex justify-between'>
             {settings.navPrimary?.map((item, i) => (
               <li key={i}>
-                <Link href={_linkResolver(item.link)}>{item.label}</Link>
+                <Link
+                  href={_linkResolver(item.link)}
+                  className={_isCurrent(_linkResolver(item.link))}>
+                  {item.label}
+                </Link>
               </li>
             ))}
             <li>
               <Search />
             </li>
-            <li>
-              <Mailchimp
-                action='xxx'
-                field={{
-                  name: "EMAIL",
-                  placeholder: "NEWSLETTER",
-                  type: "email",
-                  required: true,
-                }}
-              />
-            </li>
+            {settings.newsletterUrl && (
+              <li>
+                <Mailchimp
+                  action={settings.newsletterUrl}
+                  field={{
+                    name: "EMAIL",
+                    placeholder: "NEWSLETTER",
+                    type: "email",
+                    required: true,
+                  }}
+                />
+              </li>
+            )}
             <li>
               <Cart />
             </li>
@@ -125,7 +145,11 @@ const Header = ({ settings }: Props) => {
           <ul className='flex'>
             {settings.navPublishers?.map((item, i) => (
               <li key={i}>
-                <Link href={_linkResolver(item.link)}>{item.label}</Link>
+                <Link
+                  href={_linkResolver(item.link)}
+                  className={_isCurrent(_linkResolver(item.link))}>
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>

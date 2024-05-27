@@ -191,6 +191,13 @@ export interface Settings extends SanityDocument {
   navPublishers?: Array<SanityKeyed<LinkInternal>>;
 
   /**
+   * newsletterUrl — `string`
+   *
+   *
+   */
+  newsletterUrl?: string;
+
+  /**
    * footerText — `blockContent`
    *
    *

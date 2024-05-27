@@ -6,14 +6,23 @@ import React, { useEffect, useRef, useState } from "react";
 // import { getScrollParent } from "../utils/utils";
 import Link from "next/link";
 import { getScrollingElement } from "../utils/utils";
+import { SanityImageAsset, SanityReference } from "sanity-codegen";
 
 type Props = {
   rotateAuto?: boolean;
   rotateMouse?: boolean;
   rotateOnScroll?: boolean;
+  asset?: SanityImageAsset | SanityReference<SanityImageAsset> | any;
+  width?: number;
 };
 
-const Logo = ({ rotateAuto, rotateMouse, rotateOnScroll }: Props) => {
+const Logo = ({
+  rotateAuto,
+  rotateMouse,
+  rotateOnScroll,
+  asset,
+  width,
+}: Props) => {
   const [deg, setDeg] = useState<number>(0);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -75,8 +84,8 @@ const Logo = ({ rotateAuto, rotateMouse, rotateOnScroll }: Props) => {
     let scrollTop =
       (window.pageYOffset || scroller.scrollTop) - (scroller.clientTop || 0);
     scrollTop++;
-    console.log("_animateScroll", scrollTop);
-    console.log("scroller", scroller);
+    // console.log("_animateScroll", scrollTop);
+    // console.log("scroller", scroller);
     scroller.scroll(0, scrollTop);
 
     // if (scroll_counter >= body.offsetHeight) {
