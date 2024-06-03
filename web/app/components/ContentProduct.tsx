@@ -33,9 +33,9 @@ const ContentProduct = ({ input }: Props) => {
   return (
     <article className='content-product'>
       <div className='hero-slider'>
-        <Slider settingsOverride={{}}>
-          {input.images &&
-            input.images.map((item, i) => (
+        {input.images && input.images.length > 1 && (
+          <Slider settingsOverride={{}}>
+            {input.images.map((item, i) => (
               <div className='slide' key={i}>
                 {item.image?.asset && (
                   <Image
@@ -48,7 +48,18 @@ const ContentProduct = ({ input }: Props) => {
                 )}
               </div>
             ))}
-        </Slider>
+          </Slider>
+        )}
+
+        {input.images && input.images.length === 1 && input.images[0].image && (
+          <Image
+            src={urlFor(input.images[0].image?.asset)}
+            width={1440}
+            height={809}
+            alt={""}
+            sizes='100vw'
+          />
+        )}
       </div>
       <div className='header'>
         <div className='md:grid grid-cols-2 md:grid-cols-3 text-center'>
