@@ -140,6 +140,10 @@ p,
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.information {
+  white-space: pre;
+}
 .sep-dash {
   padding: 0 0.3em;
 }

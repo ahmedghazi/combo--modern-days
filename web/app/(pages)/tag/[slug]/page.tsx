@@ -44,7 +44,7 @@ const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
     data = await getTag(params.slug);
   }
 
-  if (!data) return <div>please edit page</div>;
+  if (!data) return <div>please edit page {params.slug}</div>;
   return (
     <div className='template template--tag' data-template='tag'>
       <ContentTag input={data} />

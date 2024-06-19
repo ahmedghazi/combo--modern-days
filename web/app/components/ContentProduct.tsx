@@ -63,7 +63,7 @@ const ContentProduct = ({ input }: Props) => {
       </div>
       <div className='header'>
         <div className='md:grid grid-cols-2 md:grid-cols-3 text-center'>
-          <div className='slider-pager hidden-sm'>
+          <div className='slider-pager hidden-sm text-left'>
             {input.images && (
               <span>
                 Image {slideIndex}/{input.images.length}
@@ -99,7 +99,9 @@ const ContentProduct = ({ input }: Props) => {
             <div className='infos'>
               <div className='flex flex-col-reverse md:flex-row justify-between mb-lg'>
                 <div className='w-4/6 '>
-                  <div className='text text-md'>{input.information}</div>
+                  <div className='text information text-md'>
+                    {input.information}
+                  </div>
                 </div>
                 <div className='label'>Informations</div>
               </div>

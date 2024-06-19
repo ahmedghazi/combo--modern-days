@@ -18,24 +18,38 @@ const ContentHome = ({ input, tags }: Props) => {
     <div className='content-home'>
       <section className='hero-slider'>
         <Slider settingsOverride={{}}>
-          {input.slider?.map((iten, i) => (
-            <div className='slide w-screen bg-black' key={i}>
-              {iten.image && (
-                <Image
-                  src={urlFor(iten.image.asset)}
-                  width={1440}
-                  height={809}
-                  alt={""}
-                  sizes='100vw'
-                  style={{
-                    width: "100vw",
-                    height: "calc(var(--vh) * 100 - var(--header-height))",
-                    objectFit: "contain",
-                  }}
-                />
-              )}
-            </div>
-          ))}
+          {input.slider &&
+            input.slider.length > 0 &&
+            input.slider?.map((iten, i) => (
+              <div className='slide w-screen bg-black' key={i}>
+                {iten.image && (
+                  <Image
+                    src={urlFor(iten.image.asset)}
+                    width={1440}
+                    height={809}
+                    alt={""}
+                    sizes='100vw'
+                    style={{
+                      width: "100vw",
+                      height: "calc(var(--vh) * 100 - var(--header-height))",
+                      objectFit: "contain",
+                    }}
+                  />
+                )}
+              </div>
+            ))}
+
+          {input.slider &&
+            input.slider.length === 1 &&
+            input.slider[0].image && (
+              <Image
+                src={urlFor(input.slider[0].image?.asset)}
+                width={1440}
+                height={809}
+                alt={""}
+                sizes='100vw'
+              />
+            )}
         </Slider>
       </section>
       <section className='products p-md md:p-lg'>
