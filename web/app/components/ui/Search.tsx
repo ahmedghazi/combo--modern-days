@@ -50,6 +50,8 @@ const Search = (props: Props) => {
   const [status, setStatus] = useState<string>("");
   const [open, setOpen] = useState<boolean>(false);
   const [searchResult, setSearchResult] = useState<Array<any>>([]);
+  const initialPlaceholder = "RECHERCHER";
+  const [placeholder, setPlaceholder] = useState<string>(initialPlaceholder);
   // const { searchResult, setSearchResult } = usePageContext();
   const pathname = usePathname();
 
@@ -125,13 +127,15 @@ const Search = (props: Props) => {
           <input
             type='search'
             size={10}
-            placeholder={"RECHERCHER"}
+            placeholder={placeholder}
             name='term'
             // onChange={changeHandler}
             onInput={changeHandler}
             value={term}
             id='s'
             className='flex-2'
+            onFocus={() => setPlaceholder("")}
+            onBlur={() => setPlaceholder(initialPlaceholder)}
           />
           {term !== "" && (
             <button

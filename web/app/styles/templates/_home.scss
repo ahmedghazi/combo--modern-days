@@ -1,7 +1,10 @@
-.page-home {
+.template--home {
+  .slick-slide img {
+    object-fit: cover !important;
+  }
 }
 
 @media all and (max-width: $sm) {
-  .page-home {
+  .template--home {
   }
 }

@@ -98,14 +98,15 @@ const ContentProduct = ({ input }: Props) => {
           <div className='col-infos'>
             <div className='infos'>
               <div className='flex flex-col-reverse md:flex-row justify-between mb-lg'>
+                <div className='label'>Informations</div>
                 <div className='w-4/6 '>
                   <div className='text information text-md'>
-                    {input.information}
+                    <p>{input.information}</p>
                   </div>
                 </div>
-                <div className='label'>Informations</div>
               </div>
               <div className='flex flex-col-reverse md:flex-row justify-between'>
+                <div className='label'>Contributeurs</div>
                 <div className='w-4/6 '>
                   <div className='text'>
                     {input.contributors && (
@@ -116,7 +117,6 @@ const ContentProduct = ({ input }: Props) => {
                     )}
                   </div>
                 </div>
-                <div className='label'>Contributeurs</div>
               </div>
             </div>
           </div>

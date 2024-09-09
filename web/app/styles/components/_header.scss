@@ -27,16 +27,23 @@ header {
     input {
       color: black;
       width: auto !important;
+      min-width: 9em;
       &::placeholder {
         color: black;
+      }
+      &:focus::placeholder {
+        color: blue;
       }
       text-align: center;
       &#s {
       }
+      i {
+        background-color: red;
+      }
     }
     button[type="submit"] {
-      position: absolute;
-      right: 0;
+      // position: absolute;
+      // right: 0;
     }
     &:has(.search.is-open) {
       mix-blend-mode: initial;
