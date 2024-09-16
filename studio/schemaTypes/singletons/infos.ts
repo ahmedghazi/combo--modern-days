@@ -44,7 +44,21 @@ export default defineType({
       type: 'string',
       group: 'editorial',
     }),
-    slug,
+    // slug,
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      description: 'ne pas éditer',
+      options: {
+        source: `title`,
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+      group: 'editorial',
+      // hidden: true,
+      readOnly: true,
+    }),
 
     defineField({
       name: 'modules',

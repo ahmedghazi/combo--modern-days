@@ -11,6 +11,7 @@ import { urlFor } from "../utils/sanity-utils";
 import portableTextComponents from "../utils/portableTextComponents";
 import { ProductExtend } from "../types/extend";
 import AddToCart from "./shop/AddToCart";
+import useDeviceDetect from "../hooks/useDeviceDetect";
 
 type Props = {
   input: ProductExtend;
@@ -30,11 +31,15 @@ const ContentProduct = ({ input }: Props) => {
     };
   }, []);
 
+  const { isMobile } = useDeviceDetect();
   return (
     <article className='content-product'>
       <div className='hero-slider'>
         {input.images && input.images.length > 1 && (
-          <Slider settingsOverride={{}}>
+          <Slider
+            settingsOverride={{
+              dots: isMobile,
+            }}>
             {input.images.map((item, i) => (
               <div className='slide' key={i}>
                 {item.image?.asset && (

@@ -105,7 +105,7 @@ export interface Infos extends SanityDocument {
   /**
    * Slug — `slug`
    *
-   * Click on generate, Semantic URL based on title (no space no char other than a-z-0-9
+   * ne pas éditer
    */
   slug?: { _type: "slug"; current: string };
 

@@ -124,3 +124,13 @@
     display: none !important;
   }
 }
+
+.slick-dots {
+  display: flex !important;
+  gap: 0.4em;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: var(--color-blue);
+  padding: 0.5em 0.5em 0.2em;
+}
