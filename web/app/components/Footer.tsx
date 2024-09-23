@@ -12,25 +12,25 @@ type Props = {
 };
 
 const Footer = ({ settings }: Props) => {
-  const [perc, setPerc] = useState<number>(0);
-  useEffect(() => {
-    window.addEventListener("scroll", _handleScroll);
-    return () => {
-      window.removeEventListener("scroll", _handleScroll);
-    };
-  }, []);
+  // const [perc, setPerc] = useState<number>(0);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", _handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", _handleScroll);
+  //   };
+  // }, []);
 
-  const _handleScroll = (evt: Event) => {
-    const scroller = getScrollingElement();
-    if (!scroller) return;
+  // const _handleScroll = (evt: Event) => {
+  //   const scroller = getScrollingElement();
+  //   if (!scroller) return;
 
-    const scrollTop =
-      (window.pageYOffset || scroller.scrollTop) - (scroller.clientTop || 0);
-    const scrollHeight = scroller.scrollHeight - window.innerHeight;
-    const _perc = scrollTop / scrollHeight;
-    console.log(_perc);
-    setPerc(_perc);
-  };
+  //   const scrollTop =
+  //     (window.pageYOffset || scroller.scrollTop) - (scroller.clientTop || 0);
+  //   const scrollHeight = scroller.scrollHeight - window.innerHeight;
+  //   const _perc = scrollTop / scrollHeight;
+  //   console.log(_perc);
+  //   setPerc(_perc);
+  // };
 
   return (
     <footer>
@@ -43,8 +43,47 @@ const Footer = ({ settings }: Props) => {
           ))}
         </ul>
       </nav>
-      <div className='flex justify-between md:items-end'>
-        <div className='text'>
+      <div className='row'>
+        <div className='col-md-4 col-xs-12'>
+          <div className='text '>
+            {settings.footerText && (
+              <PortableText
+                value={settings.footerText}
+                components={portableTextComponents}
+              />
+            )}
+          </div>
+        </div>
+        <div className='col-md-4 col-xs-12'>
+          <div
+            className='image--center  '
+            style={
+              {
+                // "--perc": perc,
+              } as React.CSSProperties
+            }>
+            <Image
+              src={`/logo-combo-editions.svg`}
+              width={207}
+              height={112}
+              alt={""}
+              sizes='100vw'
+            />
+          </div>
+        </div>
+        <div className='col-md-4 col-xs-12'>
+          <div className='text  md:text-right  '>
+            {settings.footerTextCarteDeVisite && (
+              <PortableText
+                value={settings.footerTextCarteDeVisite}
+                components={portableTextComponents}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+      {/* <div className='flex justify-between md:items-end'>
+        <div className='text '>
           {settings.footerText && (
             <PortableText
               value={settings.footerText}
@@ -53,7 +92,7 @@ const Footer = ({ settings }: Props) => {
           )}
         </div>
         <div
-          className='image--center'
+          className='image--center  '
           style={
             {
               "--perc": perc,
@@ -67,7 +106,7 @@ const Footer = ({ settings }: Props) => {
             sizes='100vw'
           />
         </div>
-        <div className='text  md:text-right'>
+        <div className='text  md:text-right  '>
           {settings.footerTextCarteDeVisite && (
             <PortableText
               value={settings.footerTextCarteDeVisite}
@@ -75,7 +114,7 @@ const Footer = ({ settings }: Props) => {
             />
           )}
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 };

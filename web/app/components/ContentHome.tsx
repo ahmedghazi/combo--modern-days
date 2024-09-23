@@ -16,6 +16,7 @@ type Props = {
 };
 
 const ContentHome = ({ input, tags }: Props) => {
+  console.log(input.about);
   return (
     <div className='content-home'>
       <section className='hero-slider'>
@@ -54,20 +55,25 @@ const ContentHome = ({ input, tags }: Props) => {
             )}
         </Slider>
       </section>
+
       {input.about && (
-        <section className='infos p-md md:p-lg'>
-          <div className='text'>
-            <PortableText
-              value={input.about}
-              components={portableTextComponents}
-            />
+        <section className='about p-md md:p-lg'>
+          <div className='row center-xs'>
+            <div className='col-md-8 col-xs-12'>
+              <div className='text text-center'>
+                <PortableText
+                  value={input.about}
+                  components={portableTextComponents}
+                />
+              </div>
+            </div>
           </div>
         </section>
       )}
-      <section className='products p-md md:p-lg'>
+      <section className='products p-md '>
         {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
         {tags && tags.length > 0 && (
-          <nav className='nav-tags '>
+          <nav className='nav-tags mb-md'>
             <ul className=''>
               {tags.map((item, i) => (
                 <li key={item._id}>

@@ -1,7 +1,10 @@
 footer {
   padding: var(--space-xl) var(--space-lg) var(--space-lg);
   // text-align: center;
-
+  .image--center {
+    display: flex;
+    justify-content: center;
+  }
   @media all and (max-width: $md) {
     padding: var(--space-xl) var(--space-md) var(--space-md);
     nav .flex {
@@ -12,6 +15,12 @@ footer {
           display: none;
         }
       }
+    }
+    .row {
+      gap: var(--space-md);
+    }
+    p {
+      text-align: center;
     }
     .flex {
       // flex-wrap: wrap;

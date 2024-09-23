@@ -50,7 +50,7 @@ const Slider = ({ children, settingsOverride }) => {
     ...settingsDefault,
     ...settingsOverride,
   };
-  console.log(settings);
+  // console.log(settings);
 
   return (
     <ReactSlick {...settings} ref={sliderRef}>
