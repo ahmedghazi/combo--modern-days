@@ -53,6 +53,11 @@ export default defineType({
       of: [{type: 'figure'}],
       group: 'editorial',
     }),
+    defineField({
+      name: 'about',
+      type: 'blockContent',
+      group: 'editorial',
+    }),
 
     defineField({
       name: 'products',

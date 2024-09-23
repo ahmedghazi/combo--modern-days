@@ -82,6 +82,13 @@ export interface Home extends SanityDocument {
   slider?: Array<SanityKeyed<Figure>>;
 
   /**
+   * about — `blockContent`
+   *
+   *
+   */
+  about?: BlockContent;
+
+  /**
    * products — `array`
    *
    *
@@ -114,7 +121,7 @@ export interface Infos extends SanityDocument {
   /**
    * Slug — `slug`
    *
-   * Click on generate, Semantic URL based on title (no space no char other than a-z-0-9
+   * ne pas éditer
    */
   slug?: { _type: "slug"; current: string };
 
@@ -212,6 +219,13 @@ export interface Settings extends SanityDocument {
    *
    */
   footerText?: BlockContent;
+
+  /**
+   * footerTextCarteDeVisite — `blockContent`
+   *
+   *
+   */
+  footerTextCarteDeVisite?: BlockContent;
 
   /**
    * Message 404 — `blockContent`

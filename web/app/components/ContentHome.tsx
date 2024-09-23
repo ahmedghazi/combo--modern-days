@@ -7,6 +7,8 @@ import Figure from "./ui/Figure";
 import { urlFor } from "../utils/sanity-utils";
 import Link from "next/link";
 import { _linkResolver } from "../utils/utils";
+import { PortableText } from "next-sanity";
+import portableTextComponents from "../utils/portableTextComponents";
 
 type Props = {
   input: Home;
@@ -52,6 +54,16 @@ const ContentHome = ({ input, tags }: Props) => {
             )}
         </Slider>
       </section>
+      {input.about && (
+        <section className='infos p-md md:p-lg'>
+          <div className='text'>
+            <PortableText
+              value={input.about}
+              components={portableTextComponents}
+            />
+          </div>
+        </section>
+      )}
       <section className='products p-md md:p-lg'>
         {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
         {tags && tags.length > 0 && (

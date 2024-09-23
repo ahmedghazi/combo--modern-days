@@ -34,8 +34,8 @@ const Footer = ({ settings }: Props) => {
 
   return (
     <footer>
-      <nav className='nav-publishers'>
-        <ul className='md:flex'>
+      <nav className='nav-publishers mb-md'>
+        <ul className='flex'>
           {settings.navPublishers?.map((item, i) => (
             <li key={i}>
               <Link href={_linkResolver(item.link)}>{item.label}</Link>
@@ -43,22 +43,7 @@ const Footer = ({ settings }: Props) => {
           ))}
         </ul>
       </nav>
-      <div className='flex justify-between items-end'>
-        <div
-          className='image--left'
-          style={
-            {
-              "--perc": perc,
-            } as React.CSSProperties
-          }>
-          <Image
-            src={`/logo-jouuue-grid.svg`}
-            width={154}
-            height={136}
-            alt={""}
-            sizes='100vw'
-          />
-        </div>
+      <div className='flex justify-between md:items-end'>
         <div className='text'>
           {settings.footerText && (
             <PortableText
@@ -68,19 +53,27 @@ const Footer = ({ settings }: Props) => {
           )}
         </div>
         <div
-          className='image--right'
+          className='image--center'
           style={
             {
               "--perc": perc,
             } as React.CSSProperties
           }>
           <Image
-            src={`/logo-editions-grid.svg`}
-            width={140}
-            height={136}
+            src={`/logo-combo-editions.svg`}
+            width={207}
+            height={112}
             alt={""}
             sizes='100vw'
           />
+        </div>
+        <div className='text  md:text-right'>
+          {settings.footerTextCarteDeVisite && (
+            <PortableText
+              value={settings.footerTextCarteDeVisite}
+              components={portableTextComponents}
+            />
+          )}
         </div>
       </div>
     </footer>

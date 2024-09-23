@@ -73,6 +73,13 @@ export interface Home extends SanityDocument {
   slider?: Array<SanityKeyed<Figure>>;
 
   /**
+   * about — `blockContent`
+   *
+   *
+   */
+  about?: BlockContent;
+
+  /**
    * products — `array`
    *
    *
@@ -203,6 +210,13 @@ export interface Settings extends SanityDocument {
    *
    */
   footerText?: BlockContent;
+
+  /**
+   * footerTextCarteDeVisite — `blockContent`
+   *
+   *
+   */
+  footerTextCarteDeVisite?: BlockContent;
 
   /**
    * Message 404 — `blockContent`

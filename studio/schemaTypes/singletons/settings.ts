@@ -87,6 +87,12 @@ export default defineType({
     defineField({
       name: 'footerText',
       type: 'blockContent',
+      group: 'footer',
+    }),
+    defineField({
+      name: 'footerTextCarteDeVisite',
+      type: 'blockContent',
+      group: 'footer',
     }),
 
     defineField({
