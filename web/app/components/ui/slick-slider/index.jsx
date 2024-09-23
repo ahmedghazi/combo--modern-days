@@ -6,7 +6,7 @@ import PubSub from "pubsub-js";
 import useDeviceDetect from "@/app/hooks/useDeviceDetect";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
-import "./slick.css"; //impossible de l'importer direct ici à cause de purge-css
+import "./slick.scss"; //impossible de l'importer direct ici à cause de purge-css
 
 const Slider = ({ children, settingsOverride }) => {
   const sliderRef = useRef();
@@ -36,7 +36,7 @@ const Slider = ({ children, settingsOverride }) => {
     // autoplay: !isMobile,
     autoplaySpeed: 3000,
     autoplay: false,
-    dots: false,
+    dots: true,
     speed: isMobile ? 250 : 500,
     // speed: 500,
     swipeToSlide: true,

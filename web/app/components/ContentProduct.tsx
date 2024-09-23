@@ -31,14 +31,14 @@ const ContentProduct = ({ input }: Props) => {
     };
   }, []);
 
-  const { isMobile } = useDeviceDetect();
+  // const { isMobile } = useDeviceDetect();
   return (
     <article className='content-product'>
       <div className='hero-slider'>
         {input.images && input.images.length > 1 && (
           <Slider
             settingsOverride={{
-              dots: isMobile,
+              dots: true,
             }}>
             {input.images.map((item, i) => (
               <div className='slide' key={i}>

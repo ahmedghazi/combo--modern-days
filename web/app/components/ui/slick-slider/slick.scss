@@ -127,10 +127,24 @@
 
 .slick-dots {
   display: flex !important;
-  gap: 0.4em;
+  justify-content: center;
+  gap: var(--space-sm);
   position: absolute;
-  right: 0;
-  bottom: 0;
+  left: 50%;
+  bottom: var(--space-md);
+  transform: translateX(-50%);
   color: var(--color-blue);
   padding: 0.5em 0.5em 0.2em;
+  li {
+    width: var(--space-sm);
+    height: var(--space-sm);
+    border: var(--border);
+    border-radius: var(--space-sm);
+    &.slick-active {
+      background-color: var(--color-blue);
+    }
+    button {
+      text-indent: -9999px;
+    }
+  }
 }
