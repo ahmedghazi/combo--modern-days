@@ -1,14 +1,14 @@
 import ContentProduct from "@/app/components/ContentProduct";
 import website from "@/app/config/website";
 import { ProductExtend } from "@/app/types/extend";
-import { Product } from "@/app/types/schema";
+// import { Product } from "@/app/types/schema";
 import { getClient } from "@/app/utils/sanity-client";
 import { getProduct, productQ } from "@/app/utils/sanity-queries";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import React from "react";
 
-export const revalidate = 3600; // revalidate every hour
+export const revalidate = 10; // revalidate every hour
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
