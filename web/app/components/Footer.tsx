@@ -82,39 +82,6 @@ const Footer = ({ settings }: Props) => {
           </div>
         </div>
       </div>
-      {/* <div className='flex justify-between md:items-end'>
-        <div className='text '>
-          {settings.footerText && (
-            <PortableText
-              value={settings.footerText}
-              components={portableTextComponents}
-            />
-          )}
-        </div>
-        <div
-          className='image--center  '
-          style={
-            {
-              "--perc": perc,
-            } as React.CSSProperties
-          }>
-          <Image
-            src={`/logo-combo-editions.svg`}
-            width={207}
-            height={112}
-            alt={""}
-            sizes='100vw'
-          />
-        </div>
-        <div className='text  md:text-right  '>
-          {settings.footerTextCarteDeVisite && (
-            <PortableText
-              value={settings.footerTextCarteDeVisite}
-              components={portableTextComponents}
-            />
-          )}
-        </div>
-      </div> */}
     </footer>
   );
 };
