@@ -74,10 +74,10 @@ const Logo = ({
     scroller.dataset.lastscrollTop = `${scrollTop}`;
   };
 
-  const _onMouseEnter = () => {
-    _animateScroll();
-    requestAnimationFrame(_animateScroll);
-  };
+  // const _onMouseEnter = () => {
+  //   _animateScroll();
+  //   requestAnimationFrame(_animateScroll);
+  // };
 
   const _animateScroll = () => {
     const scroller = getScrollingElement();
