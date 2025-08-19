@@ -96,6 +96,13 @@ export default defineType({
     }),
 
     defineField({
+      name: 'legalsUrl',
+      title: 'Page de mentions légales',
+      type: 'linkInternal',
+      group: 'misc',
+    }),
+
+    defineField({
       name: 'message404',
       title: 'Message 404',
       type: 'blockContent',
