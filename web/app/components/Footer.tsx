@@ -38,11 +38,12 @@ const Footer = ({ settings }: Props) => {
         <div className='col-md-4 col-xs-12'>
           <div
             className='image--center  '
-            style={
-              {
-                // "--perc": perc,
-              } as React.CSSProperties
-            }>
+            // style={
+            //   {
+            //     // "--perc": perc,
+            //   } as React.CSSProperties
+            // }
+          >
             <Image
               src={`/logo-modern-days.svg`}
               width={259.49}
