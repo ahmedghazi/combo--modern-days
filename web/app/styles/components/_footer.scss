@@ -1,12 +1,14 @@
+@use "../variables";
+
 footer {
-  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg);
   // text-align: center;
   .image--center {
     display: flex;
     justify-content: center;
   }
-  @media all and (max-width: $md) {
-    padding: var(--space-xl) var(--space-md) var(--space-md);
+  @media all and (max-width: variables.$md) {
+    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md);
     nav .flex {
       gap: 0;
       li {
@@ -17,33 +19,19 @@ footer {
       }
     }
     .row {
-      gap: var(--space-md);
+      gap: var(--spacing-md);
     }
     p {
       text-align: center;
     }
     .flex {
-      // flex-wrap: wrap;
       flex-direction: column;
-      // justify-content: center;
       align-items: center;
-      // justify-content: initial;
-      // align-items: initial;
-      gap: var(--space-md);
+
+      gap: var(--spacing-md);
       p {
         text-align: center;
       }
-      // .text {
-      //   order: 1;
-      //   flex: 2;
-      //   flex-basis: calc(100vw - var(--space-lg));
-      // }
-      // div:not(.text) {
-      //   flex: 1;
-      //   order: 2;
-      //   flex-basis: calc(30vw - var(--space-lg));
-      //   max-width: calc(30vw - var(--space-lg));
-      // }
     }
   }
 }

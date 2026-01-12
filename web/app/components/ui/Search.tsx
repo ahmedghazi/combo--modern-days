@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { _linkResolver } from "@/app/utils/utils";
+import { _linkResolver } from "@/app/sanity-api/utils";
 import { usePathname } from "next/navigation";
 import { Product, Publisher } from "@/app/types/schema";
 import Link from "next/link";

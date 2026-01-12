@@ -1,6 +1,6 @@
 import React from "react";
 import { PortableText } from "@portabletext/react";
-import portableTextComponents from "@/app/utils/portableTextComponents";
+import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 import { TextImageUI } from "@/app/types/schema";
 import Figure from "../ui/Figure";
 import clsx from "clsx";
@@ -24,6 +24,7 @@ const ModuleTexteImageUI = ({ input }: Props): JSX.Element => {
               </div>
             </div>
             <div className='col-md-6 col-xs-12'>
+              {title && <h2>{title}</h2>}
               {text && (
                 <PortableText
                   value={text}

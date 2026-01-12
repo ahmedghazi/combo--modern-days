@@ -1,9 +1,19 @@
 .modules {
   section {
     width: 100%;
-    // margin-bottom: var(--space-xl);
+    // margin-bottom: var(--spacing-xl);
     &:last-child {
       margin-bottom: 0;
+    }
+    &.module--text {
+      h2 {
+        margin-bottom: var(--spacing-md);
+      }
+    }
+    &.module--text-image {
+      h2 {
+        margin-bottom: var(--spacing-md);
+      }
     }
   }
 }

@@ -30,20 +30,20 @@
     background-color: white;
     color: black;
     z-index: 49;
-    padding: 0 var(--space-lg);
+    padding: 0 var(--spacing-lg);
     .h-lg {
       max-height: toRem(25);
     }
     .btn-close {
       position: absolute;
-      right: var(--space-md);
+      right: var(--spacing-md);
       top: 0;
       z-index: 10;
       line-height: 0.2;
     }
     .header {
       text-align: center;
-      padding: var(--space-md) 0;
+      padding: var(--spacing-md) 0;
       // background-color: red;
     }
     .body {

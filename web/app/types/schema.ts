@@ -228,6 +228,13 @@ export interface Settings extends SanityDocument {
   footerTextCarteDeVisite?: BlockContent;
 
   /**
+   * Page de mentions légales — `linkInternal`
+   *
+   *
+   */
+  legalsUrl?: LinkInternal;
+
+  /**
    * Message 404 — `blockContent`
    *
    *

@@ -1,20 +1,25 @@
 import React from "react";
-import ContentPublisher from "@/app/components/ContentPublisher";
 import { Metadata } from "next";
-import { getPublisher, getTag, publisherQ } from "@/app/utils/sanity-queries";
 import website from "@/app/config/website";
 import { draftMode } from "next/headers";
-import { getClient } from "@/app/utils/sanity-client";
-import { PublisherExtend, TagExtend } from "@/app/types/extend";
+import { TagExtend } from "@/app/types/extend";
 import ContentTag from "@/app/components/ContentTag";
+import { getTag, PUBLISHER_QUERY } from "@/app/sanity-api/sanity-queries";
+import { getClient } from "@/app/sanity-api/sanity.client";
+import { notFound } from "next/navigation";
 
-export const revalidate = 3600; // revalidate every hour
-export const dynamic = "force-dynamic";
+type Params = Promise<{ slug: string }>;
+
+type PageProps = {
+  params: Params;
+};
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const data = await getTag(params.slug);
+  const { slug } = await params;
+
+  const data = await getTag(slug);
   return {
     title: `${data?.title || ""}`,
     // description: data?.seo?.metaDescription,
@@ -24,27 +29,23 @@ export async function generateMetadata({
   };
 }
 
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
-
 const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   params,
 }) => {
-  const { isEnabled: preview } = draftMode();
+  const { isEnabled } = await draftMode();
+  const { slug } = await params;
   let data: TagExtend;
-  if (preview) {
+  if (isEnabled) {
     data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(
-      publisherQ,
+      PUBLISHER_QUERY,
       params
     );
   } else {
-    data = await getTag(params.slug);
+    data = await getTag(slug);
   }
 
-  if (!data) return <div>please edit page {params.slug}</div>;
+  if (!data) return notFound();
+
   return (
     <div className='template template--tag' data-template='tag'>
       <ContentTag input={data} />

@@ -6,7 +6,7 @@ export const _linkResolver = (
 ) => {
   // console.log(node);
   // console.log(node._type);
-  if (!node || !node._type) return "/";
+  if (!node || !node._type || node._type === "home") return "/";
   switch (node._type) {
     case "product":
       return `/product/${node.slug?.current}`;

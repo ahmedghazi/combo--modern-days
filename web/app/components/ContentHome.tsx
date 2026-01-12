@@ -4,11 +4,11 @@ import Image from "next/image";
 import ProductCard from "./ProductCard";
 import Slider from "./ui/slick-slider";
 import Figure from "./ui/Figure";
-import { urlFor } from "../utils/sanity-utils";
+import { urlFor } from "../sanity-api/sanity-utils";
 import Link from "next/link";
-import { _linkResolver } from "../utils/utils";
+import { _linkResolver } from "../sanity-api/utils";
 import { PortableText } from "next-sanity";
-import portableTextComponents from "../utils/portableTextComponents";
+import portableTextComponents from "../sanity-api/portableTextComponents";
 
 type Props = {
   input: Home;
@@ -16,7 +16,6 @@ type Props = {
 };
 
 const ContentHome = ({ input, tags }: Props) => {
-  console.log(input.about);
   return (
     <div className='content-home'>
       <section className='hero-slider'>

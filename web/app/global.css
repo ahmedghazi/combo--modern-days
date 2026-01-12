@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+[data-theme="theme-md"] {
+  --app-height: 100vh;
+  /* --header-height: 43.5px; */
+  --color-hover: #ff5a00;
+  --color-blue: #ff5a00;
+  --color-gray: #d9d9d9;
+
+  --font-serif: "Lastik-Free", serif;
+  --font-sans: "NTBau-Regular", "Helvetica Neue", "HelveticaNeueRoman",
+    "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular",
+    "Helvetica", "Arial", sans-serif;
+
+  --spacing-xs: 0.4em;
+  --spacing-sm: 0.625em;
+  --spacing-md: 1.25rem;
+  --spacing-lg: 3.125rem;
+  --spacing-xl: 5rem;
+  --spacing-2xl: 6.25rem;
+
+  --text-md-mobile: 1rem;
+
+  --text-sm: 0.875rem;
+  --text-md: 1.25rem;
+  --text-lg: 2rem;
+
+  /*
+  xs: 8pt 10px
+  md: 12pt 16px
+  lg: 18pt 24px
+  xl: 30pt 40px
+  */
+
+  --cubic: cubic-bezier(0.775, 0, 0.17, 1.005);
+
+  --border-width: 1px;
+  --border: var(--border-width) solid;
+  --border-width-lg: 2px;
+  --border-lg: var(--border-width-lg) solid;
+
+  --gutter: 0.625rem;
+
+  --screen-sm: 768px;
+  --screen-md: 1080px;
+  --screen-lg: 1441px;
+}
+
+@theme inline {
+  --app-height: var(--app-height);
+  --header-height: var(--header-height);
+  --color-hover: var(--color-hover);
+  --color-blue: var(--color-blue);
+  --color-gray: var(--color-gray);
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+
+  --spacing-xs: var(--spacing-xs);
+  --spacing-sm: var(--spacing-sm);
+  --spacing-md: var(--spacing-md);
+  --spacing-lg: var(--spacing-lg);
+  --spacing-xl: var(--spacing-xl);
+  --spacing-2xl: var(--spacing-2xl);
+
+  --text-md-mobile: var(--text-md-mobile);
+  --text-sm: var(--text-sm);
+  --text-md: var(--text-md);
+  --text-lg: var(--text-lg);
+
+  --cubic: var(--cubic);
+
+  --border-width: var(--border-width);
+  --border: var(--border);
+  --border-width-lg: var(--border-width-lg);
+  --border-lg: var(--border-lg);
+
+  --gutter: var(--gutter);
+
+  --screen-sm: var(--screen-sm);
+  --screen-md: var(--screen-md);
+  --screen-lg: var(--screen-lg);
+}

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Settings } from "../types/schema";
-import { _linkResolver, getScrollingElement } from "../utils/utils";
+import { _linkResolver, getScrollingElement } from "../sanity-api/utils";
 import Cart from "./shop/Cart";
 import Mailchimp from "./ui/Mailchimp";
 import Search from "./ui/Search";
@@ -54,6 +54,11 @@ const Header = ({ settings }: Props) => {
     return url === pathname ? "is-current" : "";
   };
 
+  const _isPublisherAndNotCurrent = (url: string) => {
+    //&& !_isCurrent(url)
+    return url.includes("publisher") ? "text-gray" : "";
+  };
+
   return (
     <header className={direction}>
       <div className='header-mobile'>
@@ -66,19 +71,21 @@ const Header = ({ settings }: Props) => {
         <div className={clsx("overlay", open && "is-open")}>
           <nav id='nav-primary'>
             <ul className='md:flex justify-between'>
-              {settings.navPrimary?.map((item, i) => (
-                <li key={i}>
-                  <Link
-                    href={_linkResolver(item.link)}
-                    className={_isCurrent(_linkResolver(item.link))}>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              {settings &&
+                settings.navPrimary &&
+                settings.navPrimary?.map((item, i) => (
+                  <li key={i}>
+                    <Link
+                      href={_linkResolver(item.link)}
+                      className={clsx(_isCurrent(_linkResolver(item.link)))}>
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
               <li>
                 <Search />
               </li>
-              {settings.newsletterUrl && (
+              {settings && settings.newsletterUrl && (
                 <li>
                   <Mailchimp
                     action={settings.newsletterUrl}
@@ -95,7 +102,28 @@ const Header = ({ settings }: Props) => {
           </nav>
           <nav className='nav-publishers'>
             <ul className='md:flex'>
-              {settings.navPublishers?.map((item, i) => (
+              {settings &&
+                settings.navPublishers?.map((item, i) => (
+                  <li key={i}>
+                    <Link
+                      href={_linkResolver(item.link)}
+                      className={clsx(
+                        _isCurrent(_linkResolver(item.link)),
+                        _isPublisherAndNotCurrent(_linkResolver(item.link))
+                      )}>
+                      {item.label} eee
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div className='header-desktop'>
+        <nav id='nav-primary'>
+          <ul className='flex justify-between'>
+            {settings &&
+              settings.navPrimary?.map((item, i) => (
                 <li key={i}>
                   <Link
                     href={_linkResolver(item.link)}
@@ -104,26 +132,10 @@ const Header = ({ settings }: Props) => {
                   </Link>
                 </li>
               ))}
-            </ul>
-          </nav>
-        </div>
-      </div>
-      <div className='header-desktop'>
-        <nav id='nav-primary'>
-          <ul className='flex justify-between'>
-            {settings.navPrimary?.map((item, i) => (
-              <li key={i}>
-                <Link
-                  href={_linkResolver(item.link)}
-                  className={_isCurrent(_linkResolver(item.link))}>
-                  {item.label}
-                </Link>
-              </li>
-            ))}
             <li>
               <Search />
             </li>
-            {settings.newsletterUrl && (
+            {settings && settings.newsletterUrl && (
               <li>
                 <Mailchimp
                   action={settings.newsletterUrl}
@@ -143,15 +155,19 @@ const Header = ({ settings }: Props) => {
         </nav>
         <nav className='nav-publishers'>
           <ul className='flex'>
-            {settings.navPublishers?.map((item, i) => (
-              <li key={i}>
-                <Link
-                  href={_linkResolver(item.link)}
-                  className={_isCurrent(_linkResolver(item.link))}>
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {settings &&
+              settings.navPublishers?.map((item, i) => (
+                <li key={i}>
+                  <Link
+                    href={_linkResolver(item.link)}
+                    className={clsx(
+                      _isCurrent(_linkResolver(item.link)),
+                      _isPublisherAndNotCurrent(_linkResolver(item.link))
+                    )}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </nav>
       </div>

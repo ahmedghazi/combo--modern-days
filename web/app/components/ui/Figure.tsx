@@ -1,8 +1,8 @@
 import website from "@/app/config/website";
 import { SanityReference } from "@/app/types/schema";
-import { urlFor } from "@/app/utils/sanity-utils";
+import { urlFor } from "@/app/sanity-api/sanity-utils";
 import Image from "next/image";
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import { SanityImageAsset } from "sanity-codegen";
 
 type Props = {

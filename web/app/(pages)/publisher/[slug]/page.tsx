@@ -1,19 +1,24 @@
 import React from "react";
 import ContentPublisher from "@/app/components/ContentPublisher";
 import { Metadata } from "next";
-import { getPublisher, publisherQ } from "@/app/utils/sanity-queries";
 import website from "@/app/config/website";
 import { draftMode } from "next/headers";
-import { getClient } from "@/app/utils/sanity-client";
 import { PublisherExtend } from "@/app/types/extend";
+import { getPublisher, PUBLISHER_QUERY } from "@/app/sanity-api/sanity-queries";
+import { getClient } from "@/app/sanity-api/sanity.client";
+import { notFound } from "next/navigation";
 
-export const revalidate = 3600; // revalidate every hour
-export const dynamic = "force-dynamic";
+type Params = Promise<{ slug: string }>;
+
+type PageProps = {
+  params: Params;
+};
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const data = await getPublisher(params.slug);
+  const { slug } = await params;
+  const data = await getPublisher(slug);
   return {
     title: `${data?.seo?.metaTitle || data?.title || ""}`,
     description: data?.seo?.metaDescription,
@@ -23,30 +28,27 @@ export async function generateMetadata({
   };
 }
 
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
-
 const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   params,
 }) => {
-  const { isEnabled: preview } = draftMode();
+  const { slug } = await params;
+
+  const { isEnabled } = await draftMode();
+
   let data: PublisherExtend;
-  if (preview) {
+  if (isEnabled) {
     data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(
-      publisherQ,
+      PUBLISHER_QUERY,
       params
     );
   } else {
-    data = await getPublisher(params.slug);
+    data = await getPublisher(slug);
   }
 
-  if (!data) return <div>please edit page</div>;
+  if (!data) return notFound();
+
   return (
     <div className='template template--publisher' data-template='publisher'>
-      {/* <pre>{JSON.stringify(data, null)}</pre> */}
       <ContentPublisher input={data} />
     </div>
   );

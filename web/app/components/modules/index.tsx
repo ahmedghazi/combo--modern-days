@@ -12,7 +12,7 @@ import "./index.scss";
 const Modules = ({ input }: any) => {
   // console.log(input);
   const _renderModules = () => {
-    const _modules = input.map((module: any, i: number) => {
+    const _modules = input?.map((module: any, i: number) => {
       // console.log(module._type);
       switch (module._type) {
         case "textUI":

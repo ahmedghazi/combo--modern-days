@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Product } from "../types/schema";
-import { _linkResolver } from "../utils/utils";
+import { _linkResolver } from "../sanity-api/utils";
 import Figure from "./ui/Figure";
 
 type Props = {
@@ -18,8 +18,10 @@ const ProductCard = ({ input }: Props) => {
         )}
         <div className='infos pt-md'>
           <h2>{input.title}</h2>
-          <div className='publisher'>({input.publisher?.title})</div>
-          <div className='price text-blue'>{input.price}€</div>
+          {input.publisher && (
+            <div className='publisher'>({input.publisher?.title})</div>
+          )}
+          {input.price && <div className='price text-blue'>{input.price}€</div>}
         </div>
       </Link>
     </article>

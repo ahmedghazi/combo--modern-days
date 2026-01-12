@@ -8,7 +8,7 @@ export const dataset: string = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 
 // see https://www.sanity.io/docs/api-versioning for how versioning works
 export const apiVersion =
-  process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2022-11-15";
+  process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-07-11";
 // useCdn == true gives fast, cheap responses using a globally distributed cache.
 // It makes sense to use the CDN if the GROQ webhook outlined in `pages/api/revalidate.ts` isn't setup yet.
 // With the hook setup though it's more important to newer return stale data since the request count is so low, especially after removing the `export const revalidate = 1` statements in `page.tsx` files.
@@ -19,3 +19,11 @@ export const useCdn = process.env.SANITY_REVALIDATE_SECRET
 // This is the document id used for the preview secret that's stored in your dataset.
 // The secret protects against unauthorized access to your draft content and have a lifetime of 60 minutes, to protect against bruteforcing.
 export const previewSecretId: `${string}.${string}` = "preview.secret";
+
+export const token = process.env.SANITY_API_READ_TOKEN!;
+
+export const hookSecret: string = process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET!;
+
+export const studioUrl: string =
+  process.env.NEXT_PUBLIC_SANITY_STUDIO_URL! ||
+  "https://backoffice--modern-days.sanity.studio";

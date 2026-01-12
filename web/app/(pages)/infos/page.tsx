@@ -1,14 +1,18 @@
 import React from "react";
 import { Metadata } from "next";
-import { getInfos, infosQ } from "@/app/utils/sanity-queries";
 import website from "@/app/config/website";
 import { draftMode } from "next/headers";
-import { getClient } from "@/app/utils/sanity-client";
 import { Infos } from "@/app/types/schema";
 import ContentInfos from "@/app/components/ContentInfos";
+import { getInfos, INFOS_QUERY } from "@/app/sanity-api/sanity-queries";
+import { getClient } from "@/app/sanity-api/sanity.client";
+import { notFound } from "next/navigation";
 
-export const revalidate = 3600; // revalidate every hour
-export const dynamic = "force-dynamic";
+type Params = Promise<{ slug: string }>;
+
+type PageProps = {
+  params: Params;
+};
 
 export async function generateMetadata({
   params,
@@ -23,27 +27,21 @@ export async function generateMetadata({
   };
 }
 
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
-
 const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   params,
 }) => {
-  const { isEnabled: preview } = draftMode();
+  const { isEnabled } = await draftMode();
   let data: Infos;
-  if (preview) {
+  if (isEnabled) {
     data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(
-      infosQ,
+      INFOS_QUERY,
       params
     );
   } else {
     data = await getInfos();
   }
 
-  if (!data) return <div>please edit page</div>;
+  if (!data) return notFound();
   return (
     <div className='template template--publisher' data-template='publisher'>
       <ContentInfos input={data} />

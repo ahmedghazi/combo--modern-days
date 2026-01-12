@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 // import { WheelEvent } from "react";
 // import { getScrollParent } from "../utils/utils";
 import Link from "next/link";
-import { getScrollingElement } from "../utils/utils";
+import { getScrollingElement } from "../sanity-api/utils";
 import { SanityImageAsset, SanityReference } from "sanity-codegen";
 
 type Props = {

@@ -1,14 +1,15 @@
+@use "../variables";
 header {
   position: fixed;
   width: 100%;
   top: 0;
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
   z-index: 50;
   transition: transform 0.2s var(--cubic), opacity 0.2s var(--cubic);
   color: black;
   // mix-blend-mode: difference;
   #nav-primary {
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--spacing-md);
     font-family: var(--font-sans);
     font-size: var(--text-sm);
   }
@@ -17,7 +18,7 @@ header {
     display: none;
   }
 
-  @media all and (min-width: $md) {
+  @media all and (min-width: variables.$md) {
     #nav-primary li {
       // min-width: toRem(204);
       .nav--cart .flex {
@@ -66,15 +67,15 @@ header {
     }
   }
 
-  @media all and (max-width: $md) {
-    padding: 0 var(--space-md);
+  @media all and (max-width: variables.$md) {
+    padding: 0 var(--spacing-md);
     mix-blend-mode: initial;
     color: black;
     background-color: white;
     .header-mobile {
       display: block;
       border-bottom: var(--border);
-      padding: var(--space-sm) 0;
+      padding: var(--spacing-sm) 0;
     }
     .header-desktop {
       display: none;
@@ -88,7 +89,7 @@ header {
       height: calc(var(--vh) * 100 - var(--header-height));
       overflow-y: auto;
       background-color: white;
-      padding: var(--space-md);
+      padding: var(--spacing-md);
       &.is-open {
         display: block;
       }
@@ -111,7 +112,7 @@ header {
   ul {
     justify-content: center;
   }
-  @media all and (min-width: $md) {
+  @media all and (min-width: variables.$md) {
     li:not(:last-child):after {
       content: "/";
       display: inline-block;

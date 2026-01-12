@@ -1,30 +1,30 @@
-@import "reset";
-@import "variables";
-@import "vendor/flexboxgrid/flexboxgrid";
-// @import 'vendor/slickslider/slick';
+// @use "reset";
+@use "variables";
+@use "vendor/flexboxgrid/flexboxgrid";
+// @use 'vendor/slickslider/slick';
 
-@import "mixins";
-@import "utils";
+@use "mixins";
+@use "utils";
 
-@import "typography";
+@use "typography";
 
-@import "layout";
+@use "layout";
 
-@import "components/header";
-@import "components/footer";
-@import "components/product-card";
-@import "components/logo-roulette";
-@import "components/content-home";
-@import "components/content-product";
-@import "components/content-infos";
-@import "components/content-tag";
+@use "components/header";
+@use "components/footer";
+@use "components/product-card";
+@use "components/logo-roulette";
+@use "components/content-home";
+@use "components/content-product";
+@use "components/content-infos";
+@use "components/content-tag";
 
-@import "components/ui/mailchimp";
-@import "components/ui/search";
+@use "components/ui/mailchimp";
+@use "components/ui/search";
 
-@import "shop/all";
-@import "shop/cart";
-@import "shop/product";
+@use "shop/all";
+@use "shop/cart";
+@use "shop/product";
 
-@import "templates/home";
-@import "templates/project";
+@use "templates/home";
+@use "templates/project";

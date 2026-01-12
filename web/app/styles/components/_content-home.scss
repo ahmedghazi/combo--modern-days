@@ -1,14 +1,16 @@
+@use "../variables";
+
 .content-home {
   // background-color: red;
   .about {
     font-size: var(--text-lg);
   }
   .nav-tags {
-    padding: var(--space-md) 0;
+    padding: var(--spacing-md) 0;
     font-size: var(--text-lg);
     border-top: var(--border);
     border-bottom: var(--border);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--spacing-md);
     ul {
       display: flex;
       flex-wrap: wrap;
@@ -20,7 +22,7 @@
       padding: 0 0.5em;
     }
   }
-  @media all and (max-width: $md) {
+  @media all and (max-width: variables.$md) {
     .nav-tags {
       font-size: var(--text-md);
       border-top: none;

@@ -1,5 +1,4 @@
 import { groq } from "next-sanity";
-import { client } from "./sanity-client";
 import {
   Home,
   Infos,
@@ -16,6 +15,7 @@ import {
   seo,
 } from "./fragments";
 import { PublisherExtend, TagExtend } from "../types/extend";
+import { sanityFetch } from "./sanity.client";
 // import { cache } from "react";
 
 // const clientFetch = cache(client.fetch.bind(client));
@@ -23,9 +23,7 @@ import { PublisherExtend, TagExtend } from "../types/extend";
 /**
  * SETTINGS
  */
-export async function getSettings(): Promise<Settings> {
-  return client.fetch(
-    groq`*[_type == "settings"][0]{
+export const SETTINGS_QUERY = groq`*[_type == "settings"][0]{
       ...,
 
       navPrimary[]{
@@ -49,14 +47,18 @@ export async function getSettings(): Promise<Settings> {
         }
       }
 
-    }`
-  );
+    }`;
+export async function getSettings(): Promise<Settings> {
+  return sanityFetch({
+    query: SETTINGS_QUERY,
+    tags: ["settings"],
+  });
 }
 
 /**
  * HOME
  */
-export const homeQ = groq`*[_type == "home"][0]{
+export const HOME_QUERY = groq`*[_type == "home"][0]{
   ...,
   seo{
     ${seo}
@@ -74,14 +76,17 @@ export const homeQ = groq`*[_type == "home"][0]{
 }`;
 
 export async function getHome(): Promise<Home> {
-  return client.fetch(homeQ, {});
+  return sanityFetch({
+    query: HOME_QUERY,
+    tags: ["home"],
+  });
 }
 
 /**
  * Infos
  */
 
-export const infosQ = groq`*[_type == "infos"][0]{...,
+export const INFOS_QUERY = groq`*[_type == "infos"][0]{...,
   ...,
   seo{
     ${seo}
@@ -98,13 +103,16 @@ export const infosQ = groq`*[_type == "infos"][0]{...,
   }
 }`;
 export async function getInfos(): Promise<Infos> {
-  return client.fetch(infosQ, {});
+  return sanityFetch({
+    query: INFOS_QUERY,
+    tags: ["infos"],
+  });
 }
 
 /**
  * Product
  */
-export const productQ = groq`*[_type == "product" && slug.current == $slug][0]{
+export const PRODUCT_QUERY = groq`*[_type == "product" && slug.current == $slug][0]{
   ...,
   seo{
     ${seo}
@@ -132,13 +140,28 @@ export const productQ = groq`*[_type == "product" && slug.current == $slug][0]{
 }`;
 
 export async function getProduct(slug: string): Promise<Product> {
-  return client.fetch(productQ, { slug: slug });
+  return sanityFetch({
+    query: PRODUCT_QUERY,
+    tags: ["product"],
+    qParams: { slug: slug },
+  });
+}
+
+export const ALL_PRODUCTS_QUERY = groq`*[_type == "product"]{
+  ${productCard}
+}`;
+
+export async function getAllProducts(): Promise<Product[]> {
+  return sanityFetch({
+    query: ALL_PRODUCTS_QUERY,
+    tags: ["all_products"],
+  });
 }
 
 /**
  * Publisher
  */
-export const publisherQ = groq`*[_type == "publisher" && slug.current == $slug][0]{
+export const PUBLISHER_QUERY = groq`*[_type == "publisher" && slug.current == $slug][0]{
   ...,
   seo{
     ${seo}
@@ -158,23 +181,31 @@ export const publisherQ = groq`*[_type == "publisher" && slug.current == $slug][
 }`;
 
 export async function getPublisher(slug: string): Promise<PublisherExtend> {
-  return client.fetch(publisherQ, { slug: slug });
+  return sanityFetch({
+    query: PUBLISHER_QUERY,
+    tags: ["publisher"],
+    qParams: { slug: slug },
+  });
+  // return client.fetch(publisherQ, { slug: slug });
 }
 
 /**
  * TAGS
  */
-export const tagsQ = groq`*[_type == "tag" ]{
+export const TAGS_QUERY = groq`*[_type == "tag" ]{
   ...
 }`;
 export async function getTags(): Promise<Tag[]> {
-  return client.fetch(tagsQ, {});
+  return sanityFetch({
+    query: TAGS_QUERY,
+    tags: ["tags"],
+  });
 }
 
 /**
  * TAG
  */
-export const tagQ = groq`*[_type == "tag" && slug.current == $slug][0]{
+export const TAG_QUERY = groq`*[_type == "tag" && slug.current == $slug][0]{
   ...,
   "products": *[
     _type == "product"
@@ -184,5 +215,9 @@ export const tagQ = groq`*[_type == "tag" && slug.current == $slug][0]{
   }
 }`;
 export async function getTag(slug: string): Promise<TagExtend> {
-  return client.fetch(tagQ, { slug: slug });
+  return sanityFetch({
+    query: TAG_QUERY,
+    tags: ["tag"],
+    qParams: { slug: slug },
+  });
 }
