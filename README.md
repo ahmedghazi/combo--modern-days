@@ -1,9 +1,9 @@
-# combo--jouuue
+# combo--modern-days
 
 ## back
 
-https://jouuue-editions.sanity.studio/
+https://backoffice--modern-days.sanity.studio/
 
 ## front
 
-https://combo-jouuue-nu.vercel.app
+https://modern-days.vercel.app
