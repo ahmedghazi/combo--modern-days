@@ -45,12 +45,12 @@ export default defineType({
       // correspond with HTML tags, but you can set any title or value
       // you want and decide how you want to deal with it where you want to
       // use your content.
-      // styles: [
-      //   {title: 'Normal', value: 'normal'},
-      //   {title: 'Titre H2', value: 'h2'},
-      //   {title: 'Titre H3', value: 'h3'},
-
-      // ],
+      styles: [
+        {title: 'Normal', value: 'normal'},
+        {title: 'LG', value: 'text-lg', component: TextL},
+        // {title: 'Titre H2', value: 'h2'},
+        // {title: 'Titre H3', value: 'h3'},
+      ],
       lists: [{title: 'Bullet', value: 'bullet'}],
       // Marks let you mark up inline text in the block editor.
       marks: {

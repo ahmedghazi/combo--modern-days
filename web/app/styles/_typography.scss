@@ -15,6 +15,13 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Ufficio-400";
+  src: url("./fonts/Ufficio-400.woff") format("woff"),
+    url("./fonts/Ufficio-400.woff2") format("woff2");
+  font-display: swap;
+}
+
 //ABCDiatype-Regular
 body {
   color: black;
@@ -31,10 +38,6 @@ body {
 }
 .sans {
   font-family: var(--font-sans);
-}
-.serif {
-  font-family: var(--font-serif);
-  // letter-spacing: 0.02em;
 }
 
 html {
@@ -64,6 +67,9 @@ h5,
 h6 {
   // font-size: var(--text-md);
   font-weight: normal;
+}
+h2 {
+  font-size: var(--text-lg);
 }
 .headline {
   margin-bottom: 1rem;

@@ -39,7 +39,6 @@ const config: Config = {
       lg: ["var(--text-lg)", "1"],
     },
     fontFamily: {
-      "font-serif": "[var(--font-serif)]",
       "font-sans": "[var(--font-sans)]",
     },
   },
