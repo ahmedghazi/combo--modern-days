@@ -103,6 +103,7 @@ const Header = ({ settings }: Props) => {
           <nav className='nav-publishers'>
             <ul className='md:flex'>
               {settings &&
+                settings.displayShop &&
                 settings.navPublishers?.map((item, i) => (
                   <li key={i}>
                     <Link
@@ -111,7 +112,7 @@ const Header = ({ settings }: Props) => {
                         _isCurrent(_linkResolver(item.link)),
                         _isPublisherAndNotCurrent(_linkResolver(item.link))
                       )}>
-                      {item.label} eee
+                      {item.label}
                     </Link>
                   </li>
                 ))}
@@ -158,6 +159,7 @@ const Header = ({ settings }: Props) => {
         <nav className='nav-publishers'>
           <ul className='flex'>
             {settings &&
+              settings.displayShop &&
               settings.navPublishers?.map((item, i) => (
                 <li key={i}>
                   <Link

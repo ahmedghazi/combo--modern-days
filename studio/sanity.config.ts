@@ -11,7 +11,7 @@ import {linkResolver} from './src/linkResolver'
 
 const devOnlyPlugins = [getStartedPlugin()]
 
-const remoteURL = 'https://moderndays.netlify.app/'
+const remoteURL = 'https://combo-modern-days.vercel.app/'
 const localURL = 'http://localhost:3000'
 const previewURL = window.location.hostname === 'localhost' ? localURL : remoteURL
 
