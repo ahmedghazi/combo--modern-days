@@ -43,6 +43,13 @@ export default defineType({
     }),
 
     defineField({
+      name: 'displayShop',
+      title: 'Afficher le shop',
+      type: 'boolean',
+      group: 'header',
+    }),
+
+    defineField({
       name: 'logo',
       title: 'Logo',
       type: 'image',

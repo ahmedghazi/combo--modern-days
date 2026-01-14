@@ -66,7 +66,7 @@ const Header = ({ settings }: Props) => {
           <button onClick={() => setOpen(!open)}>
             <span>{open ? "Fermer" : "Menu"}</span>
           </button>
-          <Cart />
+          {settings.displayShop && <Cart />}
         </div>
         <div className={clsx("overlay", open && "is-open")}>
           <nav id='nav-primary'>
@@ -148,9 +148,11 @@ const Header = ({ settings }: Props) => {
                 />
               </li>
             )}
-            <li>
-              <Cart />
-            </li>
+            {settings.displayShop && (
+              <li>
+                <Cart />
+              </li>
+            )}
           </ul>
         </nav>
         <nav className='nav-publishers'>

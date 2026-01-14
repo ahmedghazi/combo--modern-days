@@ -181,6 +181,13 @@ export interface Settings extends SanityDocument {
   siteName?: string;
 
   /**
+   * Afficher le shop — `boolean`
+   *
+   *
+   */
+  displayShop?: boolean;
+
+  /**
    * Logo — `image`
    *
    *
