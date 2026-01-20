@@ -101,8 +101,8 @@ export default defineType({
       type: 'figure',
     }),
 
-    // defineArrayMember({
-    //   type: 'embed',
-    // }),
+    defineArrayMember({
+      type: 'embed',
+    }),
   ],
 })

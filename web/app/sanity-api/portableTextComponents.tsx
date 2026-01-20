@@ -1,6 +1,7 @@
 import { PortableTextComponents } from "@portabletext/react";
 import { urlFor } from "./sanity-utils";
 import Image from "next/image";
+import ReactPlayer from "react-player";
 
 const portableTextComponents: PortableTextComponents = {
   // block(props) {
@@ -36,6 +37,40 @@ const portableTextComponents: PortableTextComponents = {
           width={60}
           height={60}
         />
+      );
+    },
+    embed: ({ value }) => {
+      const { url } = value;
+      if (!url) return null;
+
+      const playerConfig = {
+        youtube: {
+          playerVars: {
+            controls: 1,
+            disablekb: 1,
+            enablejsapi: 1,
+            iv_load_policy: 3,
+            modestbranding: 1,
+            cc_load_policy: 0,
+            showinfo: 0,
+            rel: 0,
+          },
+          embedOptions: {
+            host: 'https://www.youtube-nocookie.com',
+          },
+        },
+      };
+
+      return (
+        <div className="my-6">
+          <ReactPlayer
+            url={url}
+            config={playerConfig}
+            width="100%"
+            height="auto"
+            controls
+          />
+        </div>
       );
     },
   },
