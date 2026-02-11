@@ -46,6 +46,6 @@ export default defineConfig({
   },
   document: {
     // productionUrl: resolveProductionUrl,
-    // actions: [resolveProductionUrl],
+    actions: [resolveProductionUrl],
   },
 })
