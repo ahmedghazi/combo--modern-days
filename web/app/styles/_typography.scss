@@ -1,23 +1,24 @@
 @use "variables";
 @use "mixins";
 
-@font-face {
-  font-family: "NTBau-Regular";
-  src: url("./fonts/NTBau-Regular.woff") format("woff"),
-    url("./fonts/NTBau-Regular.woff2") format("woff2");
-  font-display: swap;
-}
+// @font-face {
+//   font-family: "NTBau-Regular";
+//   src: url("./fonts/NTBau-Regular.woff") format("woff"),
+//     url("./fonts/NTBau-Regular.woff2") format("woff2");
+//   font-display: swap;
+// }
 
-@font-face {
-  font-family: "Lastik-Free";
-  src: url("./fonts/Lastik-Free.woff") format("woff"),
-    url("./fonts/Lastik-Free.woff2") format("woff2");
-  font-display: swap;
-}
+// @font-face {
+//   font-family: "Lastik-Free";
+//   src: url("./fonts/Lastik-Free.woff") format("woff"),
+//     url("./fonts/Lastik-Free.woff2") format("woff2");
+//   font-display: swap;
+// }
 
 @font-face {
   font-family: "Ufficio-400";
-  src: url("./fonts/Ufficio-400.woff") format("woff"),
+  src:
+    url("./fonts/Ufficio-400.woff") format("woff"),
     url("./fonts/Ufficio-400.woff2") format("woff2");
   font-display: swap;
 }
@@ -25,7 +26,7 @@
 //ABCDiatype-Regular
 body {
   color: black;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--text-md);
   line-height: 1.25;
   // text-rendering: optimizeLegibility;
@@ -176,7 +177,10 @@ p,
 }
 
 .tabnum {
-  font-feature-settings: "tnum" on, "lnum" on, "case" on;
+  font-feature-settings:
+    "tnum" on,
+    "lnum" on,
+    "case" on;
 }
 
 .strong,
