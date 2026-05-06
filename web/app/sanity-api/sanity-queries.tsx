@@ -117,6 +117,7 @@ export const PRODUCT_QUERY = groq`*[_type == "product" && slug.current == $slug]
   seo{
     ${seo}
   },
+  preOrderByEmail,
 	publisher->{
     title
   },

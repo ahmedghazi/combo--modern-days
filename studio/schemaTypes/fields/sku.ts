@@ -28,10 +28,10 @@ export default defineField({
   type: 'string',
   group: 'shop',
   description: 'default sku if no variants',
-  validation: (Rule) =>
-    Rule.custom(async (value, context) => {
-      const isUnique = await isUniqueSKU(value, context)
-      if (!isUnique) return 'SKU is already used'
-      return true
-    }),
+  // validation: (Rule) =>
+  //   Rule.custom(async (value, context) => {
+  //     const isUnique = await isUniqueSKU(value, context)
+  //     if (!isUnique) return 'SKU is already used'
+  //     return true
+  //   }),
 })

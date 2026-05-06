@@ -286,6 +286,13 @@ export interface Product extends SanityDocument {
   seo?: Seo;
 
   /**
+   * preOrderByEmail — `boolean`
+   *
+   * Activer la précommande par email, remplace le comportement snipcart
+   */
+  preOrderByEmail?: boolean;
+
+  /**
    * title — `string`
    *
    *

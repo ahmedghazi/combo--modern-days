@@ -65,6 +65,15 @@ const ContentProduct = ({ input }: Props) => {
             sizes='100vw'
           />
         )}
+        {!input.images && input.imageCover && input.imageCover.image?.asset && (
+          <Image
+            src={urlFor(input.imageCover?.image?.asset)}
+            width={1440}
+            height={809}
+            alt={""}
+            sizes='100vw'
+          />
+        )}
       </div>
       <div className='header'>
         <div className='md:grid grid-cols-2 md:grid-cols-3 text-center'>
@@ -76,14 +85,25 @@ const ContentProduct = ({ input }: Props) => {
             )}
           </div>
           <h1 className='text-lg col-span-2 md:col-span-1'>
-            {input.title} ({input.publisher?.title})
+            {input.title}{" "}
+            {input.publisher?.title && `(${input.publisher.title})`}
           </h1>
           <div className='price text-blue'>{input.price}€</div>
         </div>
+
         <div className='atc-wrapper'>
-          <AddToCart input={input} />
+          {input.preOrderByEmail ? (
+            <a
+              href='mailto:contact@moderndays.fr'
+              className='btn btn--primary btn--lg'>
+              Précommander
+            </a>
+          ) : (
+            <AddToCart input={input} />
+          )}
         </div>
       </div>
+
       <div className='body'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-md'>
           <div className='md:grid grid-cols-6'>
