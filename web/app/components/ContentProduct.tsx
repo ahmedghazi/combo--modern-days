@@ -94,7 +94,7 @@ const ContentProduct = ({ input }: Props) => {
         <div className='atc-wrapper'>
           {input.preOrderByEmail ? (
             <a
-              href='mailto:contact@moderndays.fr'
+              href={`mailto:contact@moderndays.fr?cc=guillaume.legoff1@gmail.com&subject=Modern%20Days%20Précommande%20${input.title}&body=Bonjour, je souhaite précommander le produit ${input.title}%0A%0AVos infos: nom,email,adresse`}
               className='btn btn--primary btn--lg'>
               Précommander
             </a>
@@ -122,32 +122,36 @@ const ContentProduct = ({ input }: Props) => {
 
           <div className='col-infos'>
             <div className='infos'>
-              <div className='flex flex-col-reverse md:flex-row justify-between mb-lg'>
-                <div className='label'>Informations</div>
-                <div className='w-4/6 '>
-                  <div className='text information text-md'>
-                    <p>{input.information}</p>
+              {input.information && (
+                <div className='flex items-baseline flex-col-reverse md:flex-row justify-between mb-lg'>
+                  <div className='label'>Informations</div>
+                  <div className='w-4/6 '>
+                    <div className='text information text-md'>
+                      <p>{input.information}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className='flex flex-col-reverse md:flex-row justify-between'>
-                <div className='label'>Contributeurs</div>
-                <div className='w-4/6 '>
-                  <div className='text'>
-                    {input.contributors && (
-                      <PortableText
-                        value={input.contributors}
-                        components={portableTextComponents}
-                      />
-                    )}
+              )}
+              {input.contributors && (
+                <div className='flex items-baseline flex-col-reverse md:flex-row justify-between'>
+                  <div className='label'>Contributeurs</div>
+                  <div className='w-4/6 '>
+                    <div className='text'>
+                      {input.contributors && (
+                        <PortableText
+                          value={input.contributors}
+                          components={portableTextComponents}
+                        />
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
       </div>
-      {input.related && <ProductsRelated input={input.related} />}
+      {/* {input.related && <ProductsRelated input={input.related} />} */}
       {/* <PortableText value={_localizeField(input.text)} /> */}
     </article>
   );
