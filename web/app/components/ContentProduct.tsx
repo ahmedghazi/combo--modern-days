@@ -96,7 +96,7 @@ const ContentProduct = ({ input }: Props) => {
             <a
               href={`mailto:contact@moderndays.fr?cc=guillaume.legoff1@gmail.com&subject=Modern%20Days%20Précommande%20${input.title}&body=Bonjour, je souhaite précommander le produit ${input.title}%0A%0AVos infos: nom,email,adresse`}
               className='btn btn--primary btn--lg'>
-              Précommander
+              Commander
             </a>
           ) : (
             <AddToCart input={input} />
