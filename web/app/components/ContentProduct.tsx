@@ -94,7 +94,8 @@ const ContentProduct = ({ input }: Props) => {
         <div className='atc-wrapper'>
           {input.preOrderByEmail ? (
             <a
-              href={`mailto:contact@moderndays.fr?cc=guillaume.legoff1@gmail.com&subject=Modern%20Days%20Précommande%20${input.title}&body=Bonjour, je souhaite précommander le produit ${input.title}%0A%0AVos infos: nom,email,adresse`}
+              href='https://www.combo-editions.com/product/franck-pellegrino-process'
+              // href={`mailto:contact@moderndays.fr?cc=guillaume.legoff1@gmail.com&subject=Modern%20Days%20Précommande%20${input.title}&body=Bonjour, je souhaite précommander le produit ${input.title}%0A%0AVos infos: nom,email,adresse`}
               className='btn btn--primary btn--lg'>
               Commander
             </a>
